@@ -1,0 +1,86 @@
+/* Set default margin and padding to 0*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Define primary color used for text and secondary used for placeholder background atm.*/
+
+:root {
+  --primary-color: #785c1b;
+  --secondary-color: #f1f1f1;
+}
+
+/* Set height 2em and width 3em | Set background color to secondary color*/
+
+body {
+  margin: 0.5em 3em;
+  background-color: var(--secondary-color);
+}
+
+/* Set primary color for the text*/
+
+h1,
+h2,
+figcaption,
+p {
+  color: var(--primary-color);
+}
+
+/* Create line after 7 minute workout | set line break on figcaption  */
+
+h1:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 6.6em;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.line-break {
+  content: "";
+  display: block;
+}
+
+/* Instead of having uppercase letters in HTML we did it through css*/
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+/*Sizing for elements | set header text to align center*/
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 3.7rem;
+  margin: 10px 0;
+}
+
+header {
+  text-align: center;
+}
+
+/* Style each row */
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+figure {
+  text-align: center;
+  width: 30%;
+}
+figure img {
+  width: 50%;
+}
+
+figcaption {
+  font-size: 1.2rem;
+}
