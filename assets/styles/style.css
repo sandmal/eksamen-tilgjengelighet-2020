@@ -11,11 +11,43 @@
   --secondary-color: #f1f1f1;
 }
 
+/* Define fonts for heading and body text*/
+@font-face {
+  font-family: 'Gill-Sans';
+  src: url(assets/fonts/gill-sans.otf);
+}
+
+@font-face{
+  font-family: 'Athelas-Regular';
+  src: url(assets/fonts/athelas-regular.ttf);
+}
+
+/* Set font for heading and body text*/
+
+header {
+  text-align: center;
+  font-family: 'Gill-Sans', sans-serif;
+ 
+}
+
+figcaption {
+  font-size: 1.3rem;
+  font-family: 'Athelas-Regular', sans-serif;
+}
+
 /* Set height 2em and width 3em | Set background color to secondary color*/
 
+/* body { */
+/*   margin: 0.5em 3em; */
+/*   background-color: var(--secondary-color, 0.1); */
+/*   background-image: url(../images/thumbnail.jpeg); */
+
+/* } */
 body {
-  margin: 0.5em 3em;
-  background-color: var(--secondary-color);
+    margin: 0.5em 3em;
+    background-image:
+    linear-gradient(to bottom, rgba(241, 241, 241, 0.1), rgba(241, 241, 241, 0.1)), 
+url('../images/thumbnail.jpeg');
 }
 
 /* Set primary color for the text*/
@@ -62,9 +94,6 @@ h2 {
   margin: 10px 0;
 }
 
-header {
-  text-align: center;
-}
 
 /* Style each row */
 
@@ -86,9 +115,7 @@ figure img {
   width: 100%;
 }
 
-figcaption {
-  font-size: 1.3rem;
-}
+
 
 /*CSS related to JS*/
 
@@ -129,6 +156,6 @@ figcaption {
   }
 }
 
-/*Extra large screens*/
-@media only screen and (min-width: 1200px) {
-}
+/*/*Extra large screens*/*/
+/*@media only screen and (min-width: 1200px) {*/
+/*}*/
