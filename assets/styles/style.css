@@ -53,12 +53,12 @@ h2,
 
 /*Sizing for elements | set header text to align center*/
 
-h1 {
-  font-size: 5rem;
-}
+/* h1 { */
+/*   font-size: 5rem; */
+/* } */
 
 h2 {
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
   margin: 10px 0;
 }
 
