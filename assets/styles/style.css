@@ -108,7 +108,7 @@ figcaption {
 /* Mediaqueries for different styles*/
 
 /*Medium screens*/
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   h1 {
     font-size: 4rem;
   }
@@ -122,7 +122,7 @@ figcaption {
 }
 
 /*Large screens*/
-@media only screen and (max-width: 992px) {
+@media only screen and (min-width: 992px) {
   section {
     display: flex;
     flex-wrap: nowrap;
@@ -130,5 +130,5 @@ figcaption {
 }
 
 /*Extra large screens*/
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 1200px) {
 }
