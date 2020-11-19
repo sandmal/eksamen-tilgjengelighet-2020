@@ -22,6 +22,7 @@ body {
 
 h1,
 h2,
+h3,
 figcaption,
 p {
   color: var(--primary-color);
@@ -45,20 +46,21 @@ h1:after {
 /* Instead of having uppercase letters in HTML we did it through css*/
 
 h1,
-h2 {
+h2,
+.selectExcercise button {
   text-transform: uppercase;
 }
 
 /*Sizing for elements | set header text to align center*/
 
-h1 {
-  font-size: 6rem;
-}
+/* h1 { */
+/*   font-size: 6rem; */
+/* } */
 
-h2 {
-  font-size: 3.7rem;
-  margin: 10px 0;
-}
+/* h2 { */
+/*   font-size: 3.7rem; */
+/*   margin: 10px 0; */
+/* } */
 
 header {
   text-align: center;
@@ -69,18 +71,51 @@ header {
 section {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
 }
 
 figure {
   text-align: center;
-  width: 30%;
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid red;
 }
 figure img {
-  width: 50%;
+  width: 100%;
 }
 
-figcaption {
-  font-size: 1.2rem;
+/* figcaption { */
+/*   font-size: 1.2rem; */
+/* } */
+
+/*CSS related to JS*/
+
+.selectExcercise {
+  text-align: center;
+  margin-top: 2em;
+}
+
+/* .selectExcercise h3 { */
+/*   font-size: 1.5rem; */
+/* } */
+
+.notActive {
+  opacity: 0.3;
+}
+
+/* Mediaqueries for different styles*/
+
+/*Medium screens*/
+@media only screen and (max-width: 768px) {
+}
+
+/*Large screens*/
+@media only screen and (max-width: 992px) {
+}
+
+/*Extra large screens*/
+@media only screen and (max-width: 1200px) {
 }
