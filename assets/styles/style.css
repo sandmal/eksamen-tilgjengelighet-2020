@@ -37,18 +37,12 @@ figcaption {
 
 /* Set height 2em and width 3em | Set background color to secondary color*/
 
-/* body { */
-/*   margin: 0.5em 3em; */
-/*   background-color: var(--secondary-color, 0.1); */
-/*   background-image: url(../images/thumbnail.jpeg); */
-
-/* } */
 body {
-    margin: 0.5em 3em;
-    background-image:
-    linear-gradient(to bottom, rgba(241, 241, 241, 0.1), rgba(241, 241, 241, 0.1)), 
-url('../images/thumbnail.jpeg');
+  margin: 0.5em 3em;
+  background-color: var(--secondary-color, 0.1);
+
 }
+
 
 /* Set primary color for the text*/
 
