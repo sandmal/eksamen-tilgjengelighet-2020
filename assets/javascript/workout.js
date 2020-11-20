@@ -1,6 +1,6 @@
 // const formDiv = document.querySelector(".selectWorkout");
 // const button = document.querySelector("#btn");
-// const arms = document.querySelectorAll("[data-class='arms']");
+const arms = document.querySelectorAll("[data-class='arms']");
 // const jump = document.querySelectorAll("[data-class='jump']");
 
 // let select = document.querySelector("#muscleGroup");
@@ -23,6 +23,9 @@
 const modal = document.getElementById("selectWorkoutModal");
 const btn = document.querySelector("#workout>button");
 const span = document.getElementsByClassName("close")[0];
+
+const form = document.querySelector("form");
+// const optionValue = document.querySelector("input");
 btn.onclick = function () {
   modal.style.display = "block";
 };
@@ -36,3 +39,11 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+form.addEventListener("submit", function (event) {
+  // console.log(optionValue.value);
+  arms.forEach((item) => {
+    console.log(item);
+  });
+  event.preventDefault();
+});
