@@ -22,16 +22,14 @@
       <div id="selectWorkoutModal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
+          <form method="POST">
+            <legend>Exclude exercises using</legend>
+            <label for="arms">Arms</label>
+            <input type="checkbox" id="arms" name="arms" />
+            <label for="legs">Legs</label>
+            <input type="checkbox" id="legs" name="legs" />
+          </form>
         </div>
-        <!-- <form id="workout" method="post"> -->
-        <!--   <label for="muscleGroup">Muscle group: </label> -->
-        <!--   <select id="muscleGroup" name="muscleGroup"> -->
-        <!--     <option value="arms">Arms</option> -->
-        <!--     <option value="jump">Jump</option> -->
-        <!--   </select> -->
-        <!--   <input id="btn" type="button" value="Select workout" /> -->
-        <!-- </form> -->
       </div>
     </section>
 
