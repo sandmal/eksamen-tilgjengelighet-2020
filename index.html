@@ -8,6 +8,7 @@
       content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout"
     />
     <link rel="stylesheet" href="assets/styles/style.css" />
+    <script src="assets/javascript/workout.js" defer></script>
     <title>Workout schedule</title>
   </head>
   <body>
@@ -16,12 +17,27 @@
       <h2>workout</h2>
       <p>* Rest for 5 seconds between each excercise</p>
     </header>
-
-    <div class="selectExcercise"></div>
+    <section id="workout">
+      <button>Choose your workout</button>
+      <div id="selectWorkoutModal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+        <!-- <form id="workout" method="post"> -->
+        <!--   <label for="muscleGroup">Muscle group: </label> -->
+        <!--   <select id="muscleGroup" name="muscleGroup"> -->
+        <!--     <option value="arms">Arms</option> -->
+        <!--     <option value="jump">Jump</option> -->
+        <!--   </select> -->
+        <!--   <input id="btn" type="button" value="Select workout" /> -->
+        <!-- </form> -->
+      </div>
+    </section>
 
     <!-- First row -->
     <section>
-      <figure>
+      <figure data-class="jump" data-name="jumping-jack">
         <img
           src="assets/images/jumping-jack.png"
           alt="Jumping jack excercise"
@@ -36,7 +52,7 @@
         <figcaption>30 SEC.<span class="line-break">Wall sit</span></figcaption>
       </figure>
 
-      <figure>
+      <figure data-class="arms" data-name="Push-up">
         <img src="assets/images/push-up.png" alt="Push ups excercise" />
         <figcaption>30 SEC.<span class="line-break">Push-ups</span></figcaption>
       </figure>
@@ -49,7 +65,7 @@
         <figcaption>30 SEC.<span class="line-break">Crunch</span></figcaption>
       </figure>
 
-      <figure>
+      <figure data-class="jump" data-name="step-up">
         <img src="assets/images/step-up.png" alt="Step up excercise" />
         <figcaption>30 SEC.<span class="line-break">Step-up</span></figcaption>
       </figure>
@@ -62,19 +78,19 @@
 
     <!-- Third row -->
     <section>
-      <figure>
+      <figure data-class="arms" data-name="Triceps-dip">
         <img src="assets/images/triceps-dip.png" alt="Triceps dip excercise" />
         <figcaption>
           30 SEC.<span class="line-break">Triceps-dip</span>
         </figcaption>
       </figure>
 
-      <figure>
+      <figure data-class="arms" data-name="Plank">
         <img src="assets/images/plank.png" alt="Plank excercise" />
         <figcaption>30 SEC.<span class="line-break">Plank</span></figcaption>
       </figure>
 
-      <figure>
+      <figure data-class="jump" data-name="running">
         <img src="assets/images/running.png" alt="Running excercise" />
         <figcaption>30 SEC.<span class="line-break">Running</span></figcaption>
       </figure>
@@ -87,7 +103,7 @@
         <figcaption>30 SEC.<span class="line-break">Lunge</span></figcaption>
       </figure>
 
-      <figure>
+      <figure data-class="arms" data-name="Push-up-rotate">
         <img
           src="assets/images/push-up-rotate.png"
           alt="Push-up and rotate excercise"
@@ -101,7 +117,7 @@
         </figcaption>
       </figure>
 
-      <figure>
+      <figure data-class="arms" data-name="Side-plank">
         <img src="assets/images/side-plank.png" alt="Side plank excercise" />
         <figcaption>
           30 SEC. on
