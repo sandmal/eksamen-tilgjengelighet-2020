@@ -152,7 +152,7 @@ figure img {
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
-  height: 39.5em;
+  /* height: 37; */
   border-radius: 1em;
 }
 
@@ -166,7 +166,7 @@ form {
 fieldset {
   background-color: #eeeeee;
   width: 60%;
-  margin: 2em 0 10px 0;
+  margin: 2em 0;
   /* height: 14em; */
   padding: 0 1em;
 }
