@@ -160,9 +160,10 @@ form {
 
 fieldset {
   background-color: #eeeeee;
-  width: 50%;
+  width: 60%;
   margin: 2em 0;
   height: 13em;
+  padding: 0 1em;
 }
 
 legend {
@@ -178,7 +179,7 @@ label {
 }
 
 label span {
-  padding-left: 7px;
+  padding-left: 10px;
 }
 
 input[type="submit"] {
