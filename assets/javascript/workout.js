@@ -22,7 +22,8 @@ const arms = document.querySelectorAll("[data-class='arms']");
 
 const modal = document.getElementById("selectWorkoutModal");
 const btn = document.querySelector("#workout>button");
-const span = document.getElementsByClassName("close")[0];
+const close = document.getElementsByClassName("close")[0];
+const closeBtn = document.getElementsByClassName("closeBtn")[0];
 
 const form = document.querySelector("form");
 // const optionValue = document.querySelector("input");
@@ -30,7 +31,11 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-span.onclick = function () {
+close.onclick = function () {
+  modal.style.display = "none";
+};
+
+closeBtn.onclick = function () {
   modal.style.display = "none";
 };
 

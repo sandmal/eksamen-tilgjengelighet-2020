@@ -141,13 +141,17 @@ figure img {
   font-weight: bold;
 }
 
+.closeBtn {
+  width: 100%;
+}
+
 .modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
-  height: 35em;
+  height: 37.5em;
   border-radius: 1em;
 }
 
