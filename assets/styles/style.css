@@ -152,7 +152,7 @@ figure img {
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
-  height: 39em;
+  height: 39.5em;
   border-radius: 1em;
 }
 
@@ -166,8 +166,8 @@ form {
 fieldset {
   background-color: #eeeeee;
   width: 60%;
-  margin: 2em 0;
-  height: 14em;
+  margin: 2em 0 10px 0;
+  /* height: 14em; */
   padding: 0 1em;
 }
 
@@ -176,21 +176,22 @@ legend {
   background-color: gray;
   color: white;
   padding: 12px 10px;
-  margin: 0 auto 1.5em auto;
+  margin: 0 auto 1em auto;
 }
 
 label {
   display: flex;
-  margin: 0 8px;
+  margin: 5px 8px;
 }
 
 label span {
   padding-left: 10px;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 input[type="submit"] {
-  margin: 2em 5em;
+  margin: 1em 4em 1em 1em;
+  width: 80%;
 }
 /* Mediaqueries for different styles*/
 
