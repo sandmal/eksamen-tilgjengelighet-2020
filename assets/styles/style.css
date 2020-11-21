@@ -147,7 +147,7 @@ figure img {
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
-  height: 33em;
+  height: 35em;
   border-radius: 1em;
 }
 
@@ -162,11 +162,12 @@ fieldset {
   background-color: #eeeeee;
   width: 60%;
   margin: 2em 0;
-  height: 13em;
+  height: 14em;
   padding: 0 1em;
 }
 
 legend {
+  font-size: 1.1rem;
   background-color: gray;
   color: white;
   padding: 12px 10px;
@@ -180,6 +181,7 @@ label {
 
 label span {
   padding-left: 10px;
+  font-size: 1.15rem;
 }
 
 input[type="submit"] {
