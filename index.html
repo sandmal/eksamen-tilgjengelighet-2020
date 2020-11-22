@@ -19,6 +19,11 @@
     </header>
     <section id="workout">
       <button>Choose your workout</button>
+      <div>
+        <p id="countdown"></p>
+        <button id="startResume" onclick="workout()">Start</button>
+        <button onclick="reset()">Reset</button>
+      </div>
       <div id="selectWorkoutModal">
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -65,8 +70,8 @@
 
               <input id="exludeWorkBtn" type="submit" value="Submit" />
             </fieldset>
-            <button class="closeBtn">Close</button>
           </form>
+          <button class="closeBtn">Close</button>
         </div>
       </div>
     </section>
