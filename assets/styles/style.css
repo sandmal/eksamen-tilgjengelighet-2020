@@ -87,7 +87,7 @@ h2 {
 
 /* Style each row */
 
-section {
+#active-workout {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
