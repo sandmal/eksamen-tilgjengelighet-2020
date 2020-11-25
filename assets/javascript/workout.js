@@ -149,63 +149,30 @@ function renderRestAnimation() {
     `;
 }
 
-// var Timer = function (callback, delay) {
-//   var timerId,
-//     start,
-//     remaining = delay;
+var Timer = function (callback, delay) {
+  var timerId,
+    start,
+    remaining = delay;
 
-//   this.pause = function () {
-//     window.clearTimeout(timerId);
-//     remaining -= Date.now() - start;
-//   };
-
-//   this.resume = function () {
-//     start = Date.now();
-//     window.clearTimeout(timerId);
-//     timerId = window.setTimeout(callback, remaining);
-//   };
-
-//   this.resume();
-// };
-
-function startTimer(seconds, container, oncomplete) {
-  var startTime,
-    timer,
-    obj,
-    ms = seconds * 1000,
-    display = document.getElementById(container);
-  obj = {};
-  obj.resume = function () {
-    startTime = new Date().getTime();
-    timer = setInterval(obj.step, 250); // adjust this number to affect granularity
-    // lower numbers are more accurate, but more CPU-expensive
+  this.pause = function () {
+    window.clearTimeout(timerId);
+    remaining -= Date.now() - start;
   };
-  obj.pause = function () {
-    ms = obj.step();
-    clearInterval(timer);
+
+  this.resume = function () {
+    start = Date.now();
+    window.clearTimeout(timerId);
+    timerId = window.setTimeout(callback, remaining);
   };
-  obj.step = function () {
-    var now = Math.max(0, ms - (new Date().getTime() - startTime)),
-      m = Math.floor(now / 60000),
-      s = Math.floor(now / 1000) % 60;
-    s = (s < 10 ? "0" : "") + s;
-    display.innerHTML = m + ":" + s;
-    if (now == 0) {
-      clearInterval(timer);
-      obj.resume = function () {};
-      if (oncomplete) oncomplete();
-    }
-    return now;
-  };
-  obj.resume();
-  return obj;
-}
+
+  this.resume();
+};
 
 let running = false;
 
 var stop;
-// const exerciseTime = 5000;
-// const restTime = 2000;
+const exerciseTime = 5000;
+const restTime = 2000;
 const countdownEl = document.getElementById("countdown");
 let exerciseTimer;
 let exercisePaused = false;
@@ -228,15 +195,19 @@ function workout() {
   let currentIndex = exercises.length - 1;
   //let excerciseProgress = 0;
 
+  let isResting = 0;
+
   if (running == false) {
     document.getElementById("startResume").innerHTML = "Pause";
     running = true;
 
     (function workoutLoop() {
       renderCurrentExercise(exercises[currentIndex]);
-      exerciseTimer = new startTimer(5 * 60, "timer", function () {
-        alert("Done!");
-      })(() => {
+      // if (isResting == 0) {
+      //   renderCurrentExercise();
+      //   isResting++;
+      // }
+      exerciseTimer = new Timer(() => {
         // rest trigger
         setTimeout(() => {
           // GJør rest animasjon
