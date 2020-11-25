@@ -283,31 +283,13 @@ function renderCurrentExercise(exercise) {
     <p>${exercise.description}</p>
   `;
 }
+
 function renderRestAnimation() {
   document.getElementById("active-workout").innerHTML = `
     <h3>REST</h3>
     <p>Take a rest</p>
     `;
 }
-
-// var Timer = function (callback, delay) {
-//   var timerId,
-//     start,
-//     remaining = delay;
-
-//   this.pause = function () {
-//     window.clearTimeout(timerId);
-//     remaining -= Date.now() - start;
-//   };
-
-//   this.resume = function () {
-//     start = Date.now();
-//     window.clearTimeout(timerId);
-//     timerId = window.setTimeout(callback, remaining);
-//   };
-
-//   this.resume();
-// };
 
 function startTimer(seconds, container, oncomplete) {
   var startTime,
@@ -325,6 +307,11 @@ function startTimer(seconds, container, oncomplete) {
     ms = obj.step();
     clearInterval(timer);
   };
+
+  obj.rest = function () {
+    ms = seconds * 1000;
+  };
+
   obj.step = function () {
     var now = Math.max(0, ms - (new Date().getTime() - startTime)),
       m = Math.floor(now / 60000),
@@ -343,10 +330,12 @@ function startTimer(seconds, container, oncomplete) {
 }
 
 let running = false;
+let rest = false;
 
 var stop;
-// const exerciseTime = 5000;
-// const restTime = 2000;
+const exerciseTime = 5;
+const restTime = 3;
+
 const countdownEl = document.getElementById("countdown");
 let exerciseTimer;
 let exercisePaused = false;
@@ -375,27 +364,21 @@ function workout() {
 
     (function workoutLoop() {
       renderCurrentExercise(exercises[currentIndex]);
-      exerciseTimer = new startTimer(5 * 60, "timer", function () {
-        alert("Done!");
-      })(() => {
-        // rest trigger
-        setTimeout(() => {
-          // GJør rest animasjon
+      exerciseTimer = new startTimer(exerciseTime, "timer", () => {
+        renderRestAnimation();
+        exerciseTimer.rest();
+        exerciseTimer.resume = function () {};
+        exerciseTimer = new startTimer(restTime, "timer", () => {
           if (currentIndex > 0) {
-            renderRestAnimation();
+            currentIndex -= 1;
+            renderCurrentExercise(exercises[currentIndex]);
           }
-          // Setinterval på en progress bar
-        }, exerciseTime);
-
-        if (currentIndex > 0) {
-          currentIndex -= 1;
-          renderCurrentExercise(exercises[currentIndex]);
-        }
-        if (currentIndex >= 0) {
-          //excerciseProgress++;
-          workoutLoop();
-        }
-      }, exerciseTime + restTime);
+          if (currentIndex >= 0) {
+            //excerciseProgress++;
+            workoutLoop();
+          }
+        });
+      });
     })();
   } else {
     if (exercisePaused) {
