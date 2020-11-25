@@ -100,13 +100,26 @@ const exerciseDetails = [
     category: "legs",
     name: "Lunge",
     img: "assets/images/lunge.png",
-    description: "assets/descriptions/Lunge.txt",
+    description: 
+    `
+    <ul>
+    <li><span class="bold">Step 1</span> Starting Position: Stand with your feet together. Depress and retract your scapulae (pull your shoulders down and back) without arching your low back, and "brace" (engage your abdominal/core muscles) to stiffen your spine.</li>
+    <li><span class="bold">Step 2</span> </li>
+    <li><span class="bold">Step 3</span> </li>
+    <li><span class="bold">Step 4</span> </li>
+    </ul>
+    `,
   },
   {
     category: "legs",
     name: "Jumping Jacks",
     img: "assets/images/jumping-jack.png",
-    description: "assets/descriptions/Squat-Jump.txt",
+    description: 
+    `
+    <ul>
+    <li></li>
+    </ul>
+    `,
   },
   {
     category: "legs",
@@ -115,19 +128,19 @@ const exerciseDetails = [
     description: `<ul>
 
 
-    <li>Step 1 Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
+    <li><span class="bold">Step 1:</span> Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
 
-    <li>Step 2 Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
+    <li><span class="bold">Step 2:</span> Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
 
-    <li>Step 3 Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
+    <li><span class="bold">Step 3:</span> Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
 
-    <li>Step 4 Keep your back flat against the wall.</li>
+    <li><span class="bold">Step 4:</span> Keep your back flat against the wall.</li>
 
-    <li>Step 5 Hold the position for 20 to 60 seconds.</li>
+    <li><span class="bold">Step 5:</span> Hold the position for 20 to 60 seconds.</li>
 
-    <li>Step 6 Slide slowly back up the wall to a standing position.</li>
+    <li><span class="bold">Step 6:</span> Slide slowly back up the wall to a standing position.</li>
 
-    <li>Step 7 Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
+    <li><span class="bold">Step 7:</span> Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
     </ul>`,
   },
 ];
