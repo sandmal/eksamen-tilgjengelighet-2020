@@ -93,15 +93,15 @@ h2 {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+  margin: 0 auto;
 }
 
 figure {
   text-align: center;
   max-width: 100%;
-  margin: 20px 0;
-  padding: 10px;
-  opacity: 0.2;
+  margin: 0 0 20px 0;
 }
+
 figure img {
   width: 100%;
 }
@@ -178,20 +178,63 @@ legend {
   margin: 0 auto 1em auto;
 }
 
-label {
-  display: flex;
-  margin: 5px 8px;
+#active-workout > ul {
+  margin: 0 auto;
 }
 
-label span {
-  padding-left: 10px;
-  font-size: 1.1rem;
+li {
+  list-style-type: none;
+  font-size: 1.5em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4caf50;
+}
+
+input {
+  display: none;
 }
 
 input[type="submit"] {
-  margin: 1em 4em 1em 1em;
+  display: block;
+  margin: 1em auto;
   width: 80%;
+  height: 3em;
 }
+
+.workoutButton {
+  background-color: #ffffff;
+  border-radius: 2em;
+  border: 1px solid #1960ab;
+  display: block;
+  cursor: pointer;
+  color: black;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  max-width: 100%;
+  margin: 1em auto;
+}
+
+.workoutButtonToggled {
+  background-color: blue;
+  color: #ffffff;
+}
+
 /* Mediaqueries for different styles*/
 
 /*Medium screens*/
