@@ -1,95 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout"
+    />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <script src="assets/javascript/workout.js" defer></script>
+    <title>Workout schedule</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout" />
-  <link rel="stylesheet" href="assets/styles/style.css" />
-  <script src="assets/javascript/workout.js" defer></script>
-  <title>Workout schedule</title>
-</head>
+  <body>
+    <header>
+      <h1>7 - minute</h1>
+      <h2>workout</h2>
+      <p>* Rest for 5 seconds between each excercise</p>
+    </header>
+    <div id="workout">
+      <button>Choose your workout</button>
+      <div>
+        <p id="countdown"></p>
+        <button id="startResume" onclick="workout()">Start</button>
+        <button id="reset" onclick="reset()">Reset</button>
+      </div>
 
-<body>
-  <header>
-    <h1>7 - minute</h1>
-    <h2>workout</h2>
-    <p>* Rest for 5 seconds between each excercise</p>
-  </header>
-  <div id="workout">
-    <button>Choose your workout</button>
-    <div>
-      <p id="countdown"></p>
-      <button id="startResume" onclick="workout()">Start</button>
-      <button id="reset" onclick="reset()">Reset</button>
-    </div>
+      <div id="progressBar">
+        <div id="myBar"></div>
+      </div>
+      <span id="timer"></span>
+      <div id="active-workout"></div>
 
-    <div id="progressBar">
-      <div id="myBar"></div>
-    </div>
-    <span id="timer"></span>
-    <div id="active-workout"></div>
-    <!-- First row -->
-    <!--
-    <section>
-      <figure data-class="jump" data-name="jumping-jack">
-        <img
-          src="assets/images/jumping-jack.png"
-          alt="Jumping jack excercise"
-        />
-        <figcaption>
-          30 SEC.<span class="line-break">Jumping jacks</span>
-        </figcaption>
-      </figure>
+      <div id="selectWorkoutModal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>Choose workout</h3>
 
-      <figure>
-        <img src="assets/images/wall-sit.png" alt="Wall sit excercise" />
-        <figcaption>30 SEC.<span class="line-break">Wall sit</span></figcaption>
-      </figure>
-    <div id="selectWorkoutModal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Choose workout</h3>
+          <form method="POST">
+            <fieldset>
+              <legend>Choose workout</legend>
+              <input
+                type="checkbox"
+                value="Arms"
+                id="arms-checkbox"
+                name="arms"
+              />
+              <button id="arms" class="workoutButton" onclick="armsClick()">
+                Arms
+              </button>
 
-        <form method="POST">
-          <fieldset>
-            <legend>Choose workout</legend>
-            <input type="checkbox" value="Arms" id="arms-checkbox" name="arms">
-            <button id="arms" class="workoutButton" onclick="armsClick()">Arms</button>
+              <input
+                type="checkbox"
+                value="Legs"
+                id="legs-checkbox"
+                name="legs"
+              />
+              <button id="legs" class="workoutButton" onclick="legsClick()">
+                Legs
+              </button>
 
-            <input type="checkbox" value="Legs" id="legs-checkbox" name="legs">
-            <button id="legs" class="workoutButton" onclick="legsClick()">Legs</button>
+              <input
+                type="checkbox"
+                value="Chest"
+                id="chest-checkbox"
+                name="chest"
+              />
+              <button id="chest" class="workoutButton" onclick="chestClick()">
+                Chest
+              </button>
 
-            <input type="checkbox" value="Chest" id="chest-checkbox" name="chest">
-            <button id="chest" class="workoutButton" onclick="chestClick()">Chest</button>
+              <input
+                type="checkbox"
+                value="Back"
+                id="back-checkbox"
+                name="back"
+              />
+              <button id="back" class="workoutButton" onclick="backClick()">
+                Back
+              </button>
+            </fieldset>
 
-            <input type="checkbox" value="Back" id="back-checkbox" name="back">
-            <button id="back" class="workoutButton" onclick="backClick()">Back</button>
-          </fieldset>
+            <fieldset>
+              <legend>Choose exercises</legend>
+              <input
+                type="checkbox"
+                value="Running"
+                id="running"
+                name="running"
+              />
+              <button
+                id="runningBtn"
+                class="workoutButton"
+                onclick="runningClick()"
+              >
+                Running
+              </button>
 
-          <fieldset>
-            <legend>Choose exercises</legend>
-            <input type="checkbox" value="Running" id="running" name="running">
-            <button id="runningBtn" class="workoutButton" onclick="runningClick()">Running</button>
+              <input
+                type="checkbox"
+                value="Jumping"
+                id="jumping"
+                name="jumping"
+              />
+              <button
+                id="jumpingBtn"
+                class="workoutButton"
+                onclick="jumpingClick()"
+              >
+                Jumping
+              </button>
 
-            <input type="checkbox" value="Jumping" id="jumping" name="jumping">
-            <button id="jumpingBtn" class="workoutButton" onclick="jumpingClick()">Jumping</button>
+              <input type="checkbox" value="Chair" id="chair" name="chair" />
+              <button
+                id="chairBtn"
+                class="workoutButton"
+                onclick="chairClick()"
+              >
+                Chair
+              </button>
 
-            <input type="checkbox" value="Chair" id="chair" name="chair">
-            <button id="chairBtn" class="workoutButton" onclick="chairClick()">Chair</button>
-
-            <input type="checkbox" value="Space" id="space" name="space">
-            <button id="spaceBtn" class="workoutButton" onclick="spaceClick()">Space</button>
-          </fieldset>
-          <input type="submit" value="Submit">
-        </form>
-        <button class="closeBtn">Close</button>
+              <input type="checkbox" value="Space" id="space" name="space" />
+              <button
+                id="spaceBtn"
+                class="workoutButton"
+                onclick="spaceClick()"
+              >
+                Space
+              </button>
+            </fieldset>
+            <input type="submit" value="Submit" />
+          </form>
+          <button class="closeBtn">Close</button>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="active-workout"></div>
-  <span id="timer"></span>
-</body>
-
+    <div id="active-workout"></div>
+    <span id="timer"></span>
+  </body>
 </html>
+
