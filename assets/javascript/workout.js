@@ -115,39 +115,39 @@ const exerciseDetails = [
     description: `<ul>
 
 
-    <li>Step 1 Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
+      <li>Step 1 Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
 
-    <li>Step 2 Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
+      <li>Step 2 Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
 
-    <li>Step 3 Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
+      <li>Step 3 Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
 
-    <li>Step 4 Keep your back flat against the wall.</li>
+      <li>Step 4 Keep your back flat against the wall.</li>
 
-    <li>Step 5 Hold the position for 20 to 60 seconds.</li>
+      <li>Step 5 Hold the position for 20 to 60 seconds.</li>
 
-    <li>Step 6 Slide slowly back up the wall to a standing position.</li>
+      <li>Step 6 Slide slowly back up the wall to a standing position.</li>
 
-    <li>Step 7 Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
-    </ul>`,
+      <li>Step 7 Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
+      </ul>`,
   },
 ];
 
 function renderCurrentExercise(exercise) {
   document.getElementById("active-workout").innerHTML = `
-  <p>${exercise.category}</p>
-    <figure data-class="${exercise.category}" data-name="${exercise.name}">
-      <img src="${exercise.img}" alt="${exercise.name} Exercise" />
-      <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
-    </figure>
-    <p>${exercise.description}</p>
-  `;
+    <p>${exercise.category}</p>
+      <figure data-class="${exercise.category}" data-name="${exercise.name}">
+        <img src="${exercise.img}" alt="${exercise.name} Exercise" />
+        <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
+      </figure>
+      <p>${exercise.description}</p>
+    `;
 }
 
 function renderRestAnimation() {
   document.getElementById("active-workout").innerHTML = `
-    <h3>REST</h3>
-    <p>Take a rest</p>
-    `;
+      <h3>REST</h3>
+      <p>Take a rest</p>
+      `;
 }
 
 function startTimer(seconds, container, oncomplete) {
