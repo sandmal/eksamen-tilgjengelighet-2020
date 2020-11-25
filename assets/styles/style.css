@@ -93,15 +93,15 @@ h2 {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+  margin: 0 auto;
 }
 
 figure {
   text-align: center;
   max-width: 100%;
-  margin: 20px 0;
-  padding: 10px;
-  opacity: 1;
+  margin: 0 0 20px 0;
 }
+
 figure img {
   width: 100%;
 }
@@ -191,6 +191,21 @@ label span {
 input[type="submit"] {
   margin: 1em 4em 1em 1em;
   width: 80%;
+}
+
+#active-workout > ul {
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+  font-size: 1.5em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bold {
+  font-weight: bold;
 }
 /* Mediaqueries for different styles*/
 

@@ -17,7 +17,7 @@
       <h2>workout</h2>
       <p>* Rest for 5 seconds between each excercise</p>
     </header>
-    <section id="workout">
+    <div id="workout">
       <button>Choose your workout</button>
       <div>
         <p id="countdown"></p>
@@ -30,19 +30,19 @@
           <form method="POST">
             <fieldset>
               <legend>Exclude body parts</legend>
-              <label for="arms">
+              <label for="arms-checkbox">
                 <input type="checkbox" id="arms-checkbox" name="arms" />
                 <span>Arms</span>
               </label>
-              <label for="legs">
+              <label for="legs-checkbox">
                 <input type="checkbox" id="legs-checkbox" name="legs" />
                 <span>Legs</span>
               </label>
-              <label for="chest">
+              <label for="chest-checkbox">
                 <input type="checkbox" id="chest-checkbox" name="chest" />
                 <span>Chest</span>
               </label>
-              <label for="back">
+              <label for="back-checkbox">
                 <input type="checkbox" id="back-checkbox" name="back" />
                 <span>Back</span>
               </label>
@@ -74,10 +74,11 @@
           <button class="closeBtn">Close</button>
         </div>
       </div>
-    </section>
+    </div>
+    <div id="active-workout"></div>
     <span id="timer"></span>
-    <section id="active-workout"></section>
-
+    
+    <div id="active-workout"></div>
     <!-- First row -->
     <!--
     <section>
@@ -140,7 +141,7 @@
       </figure>
     </section>
 
-     Fourth row 
+    Fourth row 
     <section>
       <figure>
         <img src="assets/images/lunge.png" alt="Lunge excercise" />
