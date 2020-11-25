@@ -207,6 +207,17 @@ li {
 .bold {
   font-weight: bold;
 }
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4caf50;
+}
 /* Mediaqueries for different styles*/
 
 /*Medium screens*/

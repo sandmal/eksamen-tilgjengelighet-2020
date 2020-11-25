@@ -233,7 +233,7 @@ const exerciseDetails = [
     `,
   },
   {
-    category: "legs",
+    category: "hump",
     name: "Jumping Jacks",
     img: "assets/images/jumping-jack.png",
     description: `
@@ -245,18 +245,18 @@ const exerciseDetails = [
     `,
   },
   {
-    category: "legs",
+    category: "hump",
     name: "Wall-sit",
     img: "assets/images/wall-sit.png",
     description: `<ul>
-      <li>Step 1 Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
-      <li>Step 2 Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
-      <li>Step 3 Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
-      <li>Step 4 Keep your back flat against the wall.</li>
-      <li>Step 5 Hold the position for 20 to 60 seconds.</li>
-      <li>Step 6 Slide slowly back up the wall to a standing position.</li
-      <li>Step 7 Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
-      </ul>`,
+    <li><span class="bold">Step 1:</span> Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
+    <li><span class="bold">Step 2:</span> Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
+    <li><span class="bold">Step 3:</span> Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
+    <li><span class="bold">Step 4:</span> Keep your back flat against the wall.</li>
+    <li><span class="bold">Step 5:</span> Hold the position for 20 to 60 seconds.</li>
+    <li><span class="bold">Step 6:</span> Slide slowly back up the wall to a standing position.</li>
+    <li><span class="bold">Step 7:</span> Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
+    </ul>`,
   },
 ];
 
@@ -275,6 +275,13 @@ function renderRestAnimation() {
   document.getElementById("active-workout").innerHTML = `
       <h3>REST</h3>
       <p>Take a rest</p>
+      `;
+}
+
+function renderWorkoutEnd() {
+  document.getElementById("active-workout").innerHTML = `
+      <h3>Workout is done</h3>
+      <p>Workout complete</p>
       `;
 }
 
@@ -320,7 +327,7 @@ let running = false;
 let rest = false;
 
 var stop;
-const exerciseTime = 5;
+const exerciseTime = 2;
 const restTime = 3;
 
 const countdownEl = document.getElementById("countdown");
@@ -338,12 +345,30 @@ function workout() {
 
   // Filtrering
   exercises = exercises.filter((exercise) => {
-    return ["legs", "arms"].includes(exercise.category);
+    return ["legs"].includes(exercise.category);
     // return ["Wall-sit"].includes(exercise.name);
   });
 
   let currentIndex = exercises.length - 1;
-  //let excerciseProgress = 0;
+  let excerciseProgress = 0;
+  var i = 0;
+  function renderProgressBar() {
+    if (i == 0) {
+      i = 1;
+      const progress = document.getElementById("myBar");
+      let width = excerciseProgress;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          progress.style.width = width + "%";
+        }
+      }
+    }
+  }
 
   if (running == false) {
     document.getElementById("startResume").innerHTML = "Pause";
@@ -351,20 +376,27 @@ function workout() {
 
     (function workoutLoop() {
       renderCurrentExercise(exercises[currentIndex]);
+      excerciseProgress++;
+
+      console.log(excerciseProgress);
+      renderProgressBar();
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
-        renderRestAnimation();
+        renderWorkoutEnd();
         exerciseTimer.rest();
         exerciseTimer.resume = function () {};
-        exerciseTimer = new startTimer(restTime, "timer", () => {
-          if (currentIndex > 0) {
-            currentIndex -= 1;
-            renderCurrentExercise(exercises[currentIndex]);
-          }
-          if (currentIndex >= 0) {
-            //excerciseProgress++;
-            workoutLoop();
-          }
-        });
+        if (currentIndex > 0) {
+          renderRestAnimation();
+
+          exerciseTimer = new startTimer(restTime, "timer", () => {
+            if (currentIndex > 0) {
+              currentIndex -= 1;
+              renderCurrentExercise(exercises[currentIndex]);
+            }
+            if (currentIndex >= 0) {
+              workoutLoop();
+            }
+          });
+        }
       });
     })();
   } else {
@@ -379,7 +411,6 @@ function workout() {
     }
   }
 }
-
 //kjører når en excercise blir kalt
 function excercise() {
   const minutes = Math.floor(time / 60);
@@ -390,8 +421,4 @@ function excercise() {
     time--;
   }
   time = time < 0 ? 0 : time;
-}
-
-function takeBreak() {
-  alert("Take a break");
 }
