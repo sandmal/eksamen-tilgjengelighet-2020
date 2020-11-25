@@ -178,21 +178,6 @@ legend {
   margin: 0 auto 1em auto;
 }
 
-label {
-  display: flex;
-  margin: 5px 8px;
-}
-
-label span {
-  padding-left: 10px;
-  font-size: 1.1rem;
-}
-
-input[type="submit"] {
-  margin: 1em 4em 1em 1em;
-  width: 80%;
-}
-
 #active-workout > ul {
   margin: 0 auto;
 }
@@ -218,6 +203,38 @@ li {
   height: 30px;
   background-color: #4caf50;
 }
+
+input {
+  display: none;
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 1em auto;
+  width: 80%;
+  height: 3em;
+}
+
+.workoutButton {
+  background-color: #ffffff;
+  border-radius: 2em;
+  border: 1px solid #1960ab;
+  display: block;
+  cursor: pointer;
+  color: black;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  max-width: 100%;
+  margin: 1em auto;
+}
+
+.workoutButtonToggled {
+  background-color: blue;
+  color: #ffffff;
+}
+
 /* Mediaqueries for different styles*/
 
 /*Medium screens*/
