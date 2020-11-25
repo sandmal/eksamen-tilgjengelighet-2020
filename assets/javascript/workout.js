@@ -142,6 +142,7 @@ function renderCurrentExercise(exercise) {
     <p>${exercise.description}</p>
   `;
 }
+
 function renderRestAnimation() {
   document.getElementById("active-workout").innerHTML = `
     <h3>REST</h3>
@@ -149,30 +150,51 @@ function renderRestAnimation() {
     `;
 }
 
-var Timer = function (callback, delay) {
-  var timerId,
-    start,
-    remaining = delay;
-
-  this.pause = function () {
-    window.clearTimeout(timerId);
-    remaining -= Date.now() - start;
+function startTimer(seconds, container, oncomplete) {
+  var startTime,
+    timer,
+    obj,
+    ms = seconds * 1000,
+    display = document.getElementById(container);
+  obj = {};
+  obj.resume = function () {
+    startTime = new Date().getTime();
+    timer = setInterval(obj.step, 250); // adjust this number to affect granularity
+    // lower numbers are more accurate, but more CPU-expensive
+  };
+  obj.pause = function () {
+    ms = obj.step();
+    clearInterval(timer);
   };
 
-  this.resume = function () {
-    start = Date.now();
-    window.clearTimeout(timerId);
-    timerId = window.setTimeout(callback, remaining);
+  obj.rest = function () {
+    ms = seconds * 1000;
   };
 
-  this.resume();
-};
+  obj.step = function () {
+    var now = Math.max(0, ms - (new Date().getTime() - startTime)),
+      m = Math.floor(now / 60000),
+      s = Math.floor(now / 1000) % 60;
+    s = (s < 10 ? "0" : "") + s;
+    display.innerHTML = m + ":" + s;
+    if (now == 0) {
+      clearInterval(timer);
+      obj.resume = function () {};
+      if (oncomplete) oncomplete();
+    }
+    return now;
+  };
+  obj.resume();
+  return obj;
+}
 
 let running = false;
+let rest = false;
 
 var stop;
-const exerciseTime = 5000;
-const restTime = 2000;
+const exerciseTime = 5;
+const restTime = 3;
+
 const countdownEl = document.getElementById("countdown");
 let exerciseTimer;
 let exercisePaused = false;
@@ -195,37 +217,27 @@ function workout() {
   let currentIndex = exercises.length - 1;
   //let excerciseProgress = 0;
 
-  let isResting = 0;
-
   if (running == false) {
     document.getElementById("startResume").innerHTML = "Pause";
     running = true;
 
     (function workoutLoop() {
       renderCurrentExercise(exercises[currentIndex]);
-      // if (isResting == 0) {
-      //   renderCurrentExercise();
-      //   isResting++;
-      // }
-      exerciseTimer = new Timer(() => {
-        // rest trigger
-        setTimeout(() => {
-          // GJør rest animasjon
+      exerciseTimer = new startTimer(exerciseTime, "timer", () => {
+        renderRestAnimation();
+        exerciseTimer.rest();
+        exerciseTimer.resume = function () {};
+        exerciseTimer = new startTimer(restTime, "timer", () => {
           if (currentIndex > 0) {
-            renderRestAnimation();
+            currentIndex -= 1;
+            renderCurrentExercise(exercises[currentIndex]);
           }
-          // Setinterval på en progress bar
-        }, exerciseTime);
-
-        if (currentIndex > 0) {
-          currentIndex -= 1;
-          renderCurrentExercise(exercises[currentIndex]);
-        }
-        if (currentIndex >= 0) {
-          //excerciseProgress++;
-          workoutLoop();
-        }
-      }, exerciseTime + restTime);
+          if (currentIndex >= 0) {
+            //excerciseProgress++;
+            workoutLoop();
+          }
+        });
+      });
     })();
   } else {
     if (exercisePaused) {
