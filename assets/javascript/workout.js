@@ -30,14 +30,10 @@ window.onclick = function (event) {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  var armsChecked = document.getElementById('arms-checkbox').checked;
-  var legsChecked = document.getElementById('legs-checkbox').checked;
-  var chestChecked = document.getElementById('chest-checkbox').checked;
-  var backChecked = document.getElementById('back-checkbox').checked;
-
-  if (inputChecked == "arms") {
-    console.log("tes");
-  }
+  var armsChecked = document.getElementById("arms-checkbox").checked;
+  var legsChecked = document.getElementById("legs-checkbox").checked;
+  var chestChecked = document.getElementById("chest-checkbox").checked;
+  var backChecked = document.getElementById("back-checkbox").checked;
 });
 
 const exerciseDetails = [
@@ -85,7 +81,7 @@ const exerciseDetails = [
     category: "legs",
     name: "Lunge",
     img: "assets/images/lunge.png",
-  }
+  },
 ];
 
 function renderCurrentExercise(exercise) {
@@ -95,24 +91,30 @@ function renderCurrentExercise(exercise) {
       <img src="${exercise.img}" alt="${exercise.name} Exercise" />
       <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
     </figure>
-  `
+  `;
 }
 
-var Timer = function(callback, delay) {
-  var timerId, start, remaining = delay;
+var workoutTimer = function (callback, delay) {
+  var timerId,
+    start,
+    remaining = delay;
 
-  this.pause = function() {
-      window.clearTimeout(timerId);
-      remaining -= Date.now() - start;
+  this.pause = function () {
+    window.clearTimeout(timerId);
+    remaining -= Date.now() = start;
   };
 
-  this.resume = function() {
-      start = Date.now();
-      window.clearTimeout(timerId);
-      timerId = window.setTimeout(callback, remaining);
+  this.resume = function () {
+    start = Date.now();
+    window.clearTimeout(timerId);
+    timerId = window.setTimeout(callback, remaining);
   };
 
   this.resume();
+
+  this.reset = function () {
+    window.clearTimeout(timerId);
+  };
 };
 
 let running = false;
@@ -134,11 +136,12 @@ function workout() {
   let exercises = exerciseDetails;
 
   // Filtrering
-  exercises = exercises.filter(exercise => {
+  exercises = exercises.filter((exercise) => {
     return ["legs", "arms"].includes(exercise.category);
   });
 
   let currentIndex = exercises.length - 1;
+
   //let excerciseProgress = 0;
 
   if (running == false) {
@@ -146,16 +149,16 @@ function workout() {
     running = true;
 
     (function workoutLoop() {
-      renderCurrentExercise(exercises[currentIndex])
-      exerciseTimer = new Timer(() => {
+      renderCurrentExercise(exercises[currentIndex]);
+      exerciseTimer = new workoutTimer(() => {
         // rest trigger
-        setTimeout(()=>{
-          // GJør rest animasjon 
+        setTimeout(() => {
+          // GJør rest animasjon
           // Setinterval på en progress bar
-        }, exerciseTime)
+        }, exerciseTime);
         if (currentIndex > 0) {
           currentIndex -= 1;
-          renderCurrentExercise(exercises[currentIndex])
+          renderCurrentExercise(exercises[currentIndex]);
         }
         if (currentIndex >= 0) {
           //excerciseProgress++;
@@ -163,14 +166,13 @@ function workout() {
         }
       }, exerciseTime + restTime);
     })();
-
   } else {
     if (exercisePaused) {
-      exerciseTimer.resume()
+      exerciseTimer.resume();
       exercisePaused = false;
       document.getElementById("startResume").innerHTML = "Pause";
     } else {
-      exerciseTimer.pause()
+      exerciseTimer.pause();
       exercisePaused = true;
       document.getElementById("startResume").innerHTML = "Resume";
     }
