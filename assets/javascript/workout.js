@@ -7,7 +7,7 @@ const close = document.getElementsByClassName("close")[0];
 const closeBtn = document.getElementsByClassName("closeBtn")[0];
 
 const form = document.querySelector("form");
-const inputChecked = document.querySelector("input").id;
+//const inputChecked = document.querySelector("input").id;
 
 btn.onclick = function () {
   modal.style.display = "block";
@@ -27,9 +27,9 @@ window.onclick = function (event) {
   }
 };
 
-form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", function (event) {
   event.preventDefault();
-
+/* 
   var armsChecked = document.getElementById("arms-checkbox").checked;
   var legsChecked = document.getElementById("legs-checkbox").checked;
   var chestChecked = document.getElementById("chest-checkbox").checked;
@@ -37,8 +37,48 @@ form.addEventListener("submit", function (event) {
 
   if (inputChecked == "arms") {
     console.log("tes");
+  } */
+}); 
+
+  function armsClick(){
+    document.getElementById('arms-checkbox').checked=!document.getElementById('arms-checkbox').checked;
+    document.getElementById('arms').classList.toggle("workoutButtonToggled");
   }
-});
+
+  function legsClick(){
+    document.getElementById('legs-checkbox').checked=!document.getElementById('legs-checkbox').checked;
+    document.getElementById('legs').classList.toggle("workoutButtonToggled");
+  }
+
+  function chestClick(){
+    document.getElementById('chest-checkbox').checked=!document.getElementById('chest-checkbox').checked;
+    document.getElementById('chest').classList.toggle("workoutButtonToggled");
+  }
+
+  function backClick(){
+    document.getElementById('back-checkbox').checked=!document.getElementById('back-checkbox').checked;
+    document.getElementById('back').classList.toggle("workoutButtonToggled");
+  }
+
+  function runningClick(){
+    document.getElementById('running').checked=!document.getElementById('running').checked;
+    document.getElementById('runningBtn').classList.toggle("workoutButtonToggled");
+  }
+
+  function jumpingClick(){
+    document.getElementById('jumping').checked=!document.getElementById('jumping').checked;
+    document.getElementById('jumpingBtn').classList.toggle("workoutButtonToggled");
+  }
+
+  function chairClick(){
+    document.getElementById('chair').checked=!document.getElementById('chair').checked;
+    document.getElementById('chairBtn').classList.toggle("workoutButtonToggled");
+  }
+
+  function spaceClick(){
+    document.getElementById('space').checked=!document.getElementById('space').checked;
+    document.getElementById('spaceBtn').classList.toggle("workoutButtonToggled");
+  }
 
 const exerciseDetails = [
   {

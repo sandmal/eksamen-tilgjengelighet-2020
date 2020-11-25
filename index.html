@@ -1,176 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout"
-    />
-    <link rel="stylesheet" href="assets/styles/style.css" />
-    <script src="assets/javascript/workout.js" defer></script>
-    <title>Workout schedule</title>
-  </head>
-  <body>
-    <header>
-      <h1>7 - minute</h1>
-      <h2>workout</h2>
-      <p>* Rest for 5 seconds between each excercise</p>
-    </header>
-    <div id="workout">
-      <button>Choose your workout</button>
-      <div>
-        <p id="countdown"></p>
-        <button id="startResume" onclick="workout()">Start</button>
-        <button id="reset" onclick="reset()">Reset</button>
-      </div>
-      <div id="selectWorkoutModal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <form method="POST">
-            <fieldset>
-              <legend>Exclude body parts</legend>
-              <label for="arms-checkbox">
-                <input type="checkbox" id="arms-checkbox" name="arms" />
-                <span>Arms</span>
-              </label>
-              <label for="legs-checkbox">
-                <input type="checkbox" id="legs-checkbox" name="legs" />
-                <span>Legs</span>
-              </label>
-              <label for="chest-checkbox">
-                <input type="checkbox" id="chest-checkbox" name="chest" />
-                <span>Chest</span>
-              </label>
-              <label for="back-checkbox">
-                <input type="checkbox" id="back-checkbox" name="back" />
-                <span>Back</span>
-              </label>
-              <input id="excludeBodyBtn" type="submit" value="Submit" />
-            </fieldset>
 
-            <fieldset>
-              <legend>Exclude excercises</legend>
-              <label for="running">
-                <input type="checkbox" id="running" name="running" />
-                <span>Running</span>
-              </label>
-              <label for="jumping">
-                <input type="checkbox" id="jumping" name="jumping" />
-                <span>Jumping</span>
-              </label>
-              <label for="chair">
-                <input type="checkbox" id="chair" name="chair" />
-                <span>Require chair</span>
-              </label>
-              <label for="space">
-                <input type="checkbox" id="space" name="space" />
-                <span>Require space</span>
-              </label>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout" />
+  <link rel="stylesheet" href="assets/styles/style.css" />
+  <script src="assets/javascript/workout.js" defer></script>
+  <title>Workout schedule</title>
+</head>
 
-              <input id="exludeWorkBtn" type="submit" value="Submit" />
-            </fieldset>
-          </form>
-          <button class="closeBtn">Close</button>
-        </div>
+<body>
+  <header>
+    <h1>7 - minute</h1>
+    <h2>workout</h2>
+    <p>* Rest for 5 seconds between each excercise</p>
+  </header>
+  <div id="workout">
+    <button>Choose your workout</button>
+    <div>
+      <p id="countdown"></p>
+      <button id="startResume" onclick="workout()">Start</button>
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <div id="selectWorkoutModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Choose workout</h3>
+
+        <form method="POST">
+          <fieldset>
+            <legend>Choose workout</legend>
+            <input type="checkbox" value="Arms" id="arms-checkbox" name="arms">
+            <button id="arms" class="workoutButton" onclick="armsClick()">Arms</button>
+
+            <input type="checkbox" value="Legs" id="legs-checkbox" name="legs">
+            <button id="legs" class="workoutButton" onclick="legsClick()">Legs</button>
+
+            <input type="checkbox" value="Chest" id="chest-checkbox" name="chest">
+            <button id="chest" class="workoutButton" onclick="chestClick()">Chest</button>
+
+            <input type="checkbox" value="Back" id="back-checkbox" name="back">
+            <button id="back" class="workoutButton" onclick="backClick()">Back</button>
+          </fieldset>
+
+          <fieldset>
+            <legend>Choose exercises</legend>
+            <input type="checkbox" value="Running" id="running" name="running">
+            <button id="runningBtn" class="workoutButton" onclick="runningClick()">Running</button>
+
+            <input type="checkbox" value="Jumping" id="jumping" name="jumping">
+            <button id="jumpingBtn" class="workoutButton" onclick="jumpingClick()">Jumping</button>
+
+            <input type="checkbox" value="Chair" id="chair" name="chair">
+            <button id="chairBtn" class="workoutButton" onclick="chairClick()">Chair</button>
+
+            <input type="checkbox" value="Space" id="space" name="space">
+            <button id="spaceBtn" class="workoutButton" onclick="spaceClick()">Space</button>
+          </fieldset>
+          <input type="submit" value="Submit">
+        </form>
+        <button class="closeBtn">Close</button>
       </div>
     </div>
-    <div id="active-workout"></div>
-    <span id="timer"></span>
-    
-    <div id="active-workout"></div>
-    <!-- First row -->
-    <!--
-    <section>
-      <figure data-class="jump" data-name="jumping-jack">
-        <img
-          src="assets/images/jumping-jack.png"
-          alt="Jumping jack excercise"
-        />
-        <figcaption>
-          30 SEC.<span class="line-break">Jumping jacks</span>
-        </figcaption>
-      </figure>
+  </div>
+  <div id="active-workout"></div>
+  <span id="timer"></span>
+</body>
 
-      <figure>
-        <img src="assets/images/wall-sit.png" alt="Wall sit excercise" />
-        <figcaption>30 SEC.<span class="line-break">Wall sit</span></figcaption>
-      </figure>
-
-      <figure data-class="arms" data-name="Push-up">
-        <img src="assets/images/push-up.png" alt="Push ups excercise" />
-        <figcaption>30 SEC.<span class="line-break">Push-ups</span></figcaption>
-      </figure>
-    </section>
-
-    Second row 
-    <section>
-      <figure>
-        <img src="assets/images/crunch.png" alt="Crunch excercise" />
-        <figcaption>30 SEC.<span class="line-break">Crunch</span></figcaption>
-      </figure>
-
-      <figure data-class="jump" data-name="step-up">
-        <img src="assets/images/step-up.png" alt="Step up excercise" />
-        <figcaption>30 SEC.<span class="line-break">Step-up</span></figcaption>
-      </figure>
-
-      <figure>
-        <img src="assets/images/squat.png" alt="Squat excercise" />
-        <figcaption>30 SEC.<span class="line-break">Squat</span></figcaption>
-      </figure>
-    </section>
-
-    Third row
-    <section>
-      <figure data-class="arms" data-name="Triceps-dip">
-        <img src="assets/images/triceps-dip.png" alt="Triceps dip excercise" />
-        <figcaption>
-          30 SEC.<span class="line-break">Triceps-dip</span>
-        </figcaption>
-      </figure>
-
-      <figure data-class="arms" data-name="Plank">
-        <img src="assets/images/plank.png" alt="Plank excercise" />
-        <figcaption>30 SEC.<span class="line-break">Plank</span></figcaption>
-      </figure>
-
-      <figure data-class="jump" data-name="running">
-        <img src="assets/images/running.png" alt="Running excercise" />
-        <figcaption>30 SEC.<span class="line-break">Running</span></figcaption>
-      </figure>
-    </section>
-
-    Fourth row 
-    <section>
-      <figure>
-        <img src="assets/images/lunge.png" alt="Lunge excercise" />
-        <figcaption>30 SEC.<span class="line-break">Lunge</span></figcaption>
-      </figure>
-
-      <figure data-class="arms" data-name="Push-up-rotate">
-        <img
-          src="assets/images/push-up-rotate.png"
-          alt="Push-up and rotate excercise"
-        />
-        <figcaption>
-          30 SEC. on<span class="line-break"
-            >each side:<span class="line-break"
-              >Push-up <span class="line-break">and rotate</span></span
-            ></span
-          >
-        </figcaption>
-      </figure>
-
-      <figure data-class="arms" data-name="Side-plank">
-        <img src="assets/images/side-plank.png" alt="Side plank excercise" />
-        <figcaption>
-          30 SEC. on
-          <span class="line-break"
-            >each side: <span class="line-break">Side-plank</span></span
-          >
-        </figcaption>
-      </figure>
-    </section> -->
-  </body>
 </html>
