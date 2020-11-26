@@ -136,7 +136,7 @@ function showBar() {
 
 function hideButtonWork() {
   document.querySelector("#workout>button").style.display = "none";
-}
+
 
 const exerciseDetails = [
   {
@@ -144,7 +144,7 @@ const exerciseDetails = [
     name: "Push-ups",
     img: "assets/images/push-up.png",
     description: `
-   <ul role="alert">
+    <ul role="alert">
       <li><span class="bold">Step 1</span> Starting Position: Kneel on an exercise mat or floor and bring your feet together behind you.</li>
       <li><span class="bold">Step 2</span> Slowly bend forward to place your palms flat on the mat, positioning your hands shoulder-width apart with your fingers facing forward or turned slightly inward. 
       Slowly shift your weight forward until your shoulders are positioned directly over your hands. 
@@ -216,7 +216,7 @@ const exerciseDetails = [
     name: "Triceps-dip",
     img: "assets/images/triceps-dip.png",
     description: `
-   <ul role="alert">
+    <ul role="alert">
       <li><span class="bold">Step 1</span> Sit on the edge of the chair and grip the edge next to your hips. 
       Your fingers should be pointed at your feet. 
       Your legs are extended and your feet should be about hip-width apart with the heels touching the ground. 
@@ -256,7 +256,7 @@ const exerciseDetails = [
     name: "Squat",
     img: "assets/images/squat.png",
     description: `
-     <ul role="alert">
+      <ul role="alert">
       <li><span class="bold">Step 1</span> Starting Position: Stand with your feet feet hip-width apart, arms by your sides, depressing and retracting your scapulae (pull shoulders down and back) without arching your low back, and "brace" (engage your abdominal / core muscles) to stiffen your spine. 
       Downward Phase: Begin your downward phase by first shifting your hips backwards then slowly moving downwards to create a hinge-like movement at your knees. 
       Continue to lower yourself until your feel your heels about to lift off the floor. 
@@ -413,7 +413,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () {};
+      obj.resume = function () { };
       if (oncomplete) oncomplete();
     }
     return now;
@@ -468,7 +468,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () {};
+        exerciseTimer.resume = function () { };
         excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {
