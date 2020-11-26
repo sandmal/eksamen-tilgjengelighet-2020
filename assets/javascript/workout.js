@@ -65,6 +65,11 @@ form.addEventListener("submit", function (event) {
     console.log("tes");
   } */
 });
+
+function reset(){
+  location.reload();
+}
+
 // Functions for body parts
 function armsClick() {
   document.getElementById("arms-checkbox").checked = !document.getElementById(
