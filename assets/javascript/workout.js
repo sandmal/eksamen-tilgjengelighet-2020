@@ -385,7 +385,7 @@ let running = false;
 let rest = false;
 
 var stop;
-const exerciseTime = 2;
+const exerciseTime = 5;
 const restTime = 3;
 
 const countdownEl = document.getElementById("countdown");
@@ -439,8 +439,8 @@ function workout() {
             }
             if (currentIndex >= 0) {
               excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
-              progressBar();
               workoutLoop();
+              progressBar();
             }
           });
         }
