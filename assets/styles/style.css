@@ -205,6 +205,10 @@ li {
   background-color: #4caf50;
 }
 
+label {
+  display: none;
+}
+
 input {
   display: none;
 }
