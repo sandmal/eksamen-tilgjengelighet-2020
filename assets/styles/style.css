@@ -39,6 +39,7 @@ figcaption {
 body {
   margin: 0.5em 3em;
   background-color: var(--secondary-color, 0.1);
+  background: url(../images/concrete.jpg);
 }
 
 /* Set primary color for the text*/
