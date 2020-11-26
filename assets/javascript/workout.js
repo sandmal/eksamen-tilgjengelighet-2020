@@ -59,13 +59,18 @@ form.addEventListener("submit", function (event) {
   var armsChecked = document.getElementById("arms-checkbox").checked;
   var legsChecked = document.getElementById("legs-checkbox").checked;
   var chestChecked = document.getElementById("chest-checkbox").checked;
-  var backChecked = document.getElementById("back-checkbox").checked;
+  var backChecked = document.getElementById("shoulders-checkbox").checked;
 
   if (inputChecked == "arms") {
     console.log("tes");
   } */
 });
 
+function reset() {
+  location.reload();
+}
+
+// Functions for body parts
 function armsClick() {
   document.getElementById("arms-checkbox").checked = !document.getElementById(
     "arms-checkbox"
@@ -87,12 +92,55 @@ function chestClick() {
   document.getElementById("chest").classList.toggle("workoutButtonToggled");
 }
 
-function backClick() {
-  document.getElementById("back-checkbox").checked = !document.getElementById(
-    "back-checkbox"
-  ).checked;
-  document.getElementById("back").classList.toggle("workoutButtonToggled");
+function shoulderClick() {
+  document.getElementById(
+    "shoulders-checkbox"
+  ).checked = !document.getElementById("shoulders-checkbox").checked;
+  document.getElementById("shoulders").classList.toggle("workoutButtonToggled");
 }
+
+function absClick() {
+  document.getElementById("abs-checkbox").checked = !document.getElementById(
+    "abs-checkbox"
+  ).checked;
+  document.getElementById("abs").classList.toggle("workoutButtonToggled");
+}
+
+function buttClick() {
+  document.getElementById("butt-checkbox").checked = !document.getElementById(
+    "butt-checkbox"
+  ).checked;
+  document.getElementById("butt").classList.toggle("workoutButtonToggled");
+}
+
+function thighsClick() {
+  document.getElementById("thighs-checkbox").checked = !document.getElementById(
+    "thighs-checkbox"
+  ).checked;
+  document.getElementById("thighs").classList.toggle("workoutButtonToggled");
+}
+
+function quadsClick() {
+  document.getElementById("quads-checkbox").checked = !document.getElementById(
+    "quads-checkbox"
+  ).checked;
+  document.getElementById("quads").classList.toggle("workoutButtonToggled");
+}
+
+function glutesClick() {
+  document.getElementById("glutes-checkbox").checked = !document.getElementById(
+    "glutes-checkbox"
+  ).checked;
+  document.getElementById("glutes").classList.toggle("workoutButtonToggled");
+}
+
+function calvesClick() {
+  document.getElementById("calves-checkbox").checked = !document.getElementById(
+    "calves-checkbox"
+  ).checked;
+  document.getElementById("calves").classList.toggle("workoutButtonToggled");
+}
+// End functions for body parts
 
 function runningClick() {
   document.getElementById("running").checked = !document.getElementById(
