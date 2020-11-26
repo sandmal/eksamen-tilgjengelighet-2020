@@ -403,21 +403,18 @@ function workout() {
 
   // Filtrering
   exercises = exercises.filter((exercise) => {
-    return ["hump"].includes(exercise.category);
+    return ["arms"].includes(exercise.category);
     // return ["Wall-sit"].includes(exercise.name);
   });
 
   let currentIndex = exercises.length - 1;
   var excerciseProgress = 0;
   function progressBar() {
-    var element = document.getElementById("progressBar");
-    if (excerciseProgress >= 100) {
-      // clearInterval(identity);
+    var element = document.getElementById("myBar");
+    if (excerciseProgress >= 1000) {
     } else {
       element.style.width = excerciseProgress + "%";
-      element.innerHTML = excerciseProgress * 1 + "%";
-
-      // console.log(excerciseProgress + "Hello");
+      // element.innerHTML = excerciseProgress * 1 + "%";
     }
   }
 
@@ -425,27 +422,23 @@ function workout() {
     document.getElementById("startResume").innerHTML = "Pause";
     running = true;
 
-    // var identity = setInterval(scene, 10);
-
     (function workoutLoop() {
       renderCurrentExercise(exercises[currentIndex]);
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
         exerciseTimer.resume = function () {};
-        console.log((excerciseProgress += 10));
+        excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {
-          // console.log("after currentIndex" + excerciseProgress++);
           renderRestAnimation();
           exerciseTimer = new startTimer(restTime, "timer", () => {
             if (currentIndex > 0) {
               currentIndex -= 1;
               renderCurrentExercise(exercises[currentIndex]);
-              // console.log(excerciseProgress++);
             }
             if (currentIndex >= 0) {
-              console.log((excerciseProgress += 10));
+              excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
               progressBar();
               workoutLoop();
             }
