@@ -109,8 +109,21 @@ figure img {
 
 /*CSS related to JS*/
 
-#workout > button {
-  margin: 2em auto 0 auto;
+#workout > button,
+#startResume,
+#reset {
+  background-color: #ffffff;
+  border-radius: 2em;
+  border: 1px solid var(--primary-color);
+  display: block;
+  cursor: pointer;
+  color: black;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  max-width: 100%;
+  margin: 1em auto;
 }
 
 .selectExcercise h3 {
@@ -188,6 +201,7 @@ li {
   font-size: 1.5em;
   width: 90%;
   margin: 0 auto;
+  padding: 0.5em;
 }
 
 .bold {
@@ -223,7 +237,7 @@ input[type="submit"] {
 .workoutButton {
   background-color: #ffffff;
   border-radius: 2em;
-  border: 1px solid #1960ab;
+  border: 1px solid var(--primary-color);
   display: block;
   cursor: pointer;
   color: black;
@@ -236,7 +250,7 @@ input[type="submit"] {
 }
 
 .workoutButtonToggled {
-  background-color: blue;
+  background-color: var(--primary-color);
   color: #ffffff;
 }
 
