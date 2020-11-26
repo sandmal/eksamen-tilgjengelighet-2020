@@ -159,6 +159,14 @@ figure img {
   height: 3em;
 }
 
+.closeBtn:hover,
+#workout>button:hover,
+#startResume:hover,
+#reset:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
 .modal-content {
   background-color: #fefefe;
   margin: 1em auto 5em auto;
