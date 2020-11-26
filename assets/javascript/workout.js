@@ -11,91 +11,97 @@ const form = document.querySelector("form");
 
 btn.onclick = function () {
   modal.style.display = "block";
+  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+  const body = document.body;
+  body.style.position = 'fixed';
+  body.style.top = `-${scrollY}`;
 };
 
 close.onclick = function () {
   modal.style.display = "none";
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = '';
+  body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
 };
 
 closeBtn.onclick = function () {
   modal.style.display = "none";
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = '';
+  body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    const body = document.body;
+    const scrollY = body.style.top;
+    body.style.position = '';
+    body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
   }
 };
 
+
+window.addEventListener('scroll', () => {
+  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+});
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  /* 
-  var armsChecked = document.getElementById("arms-checkbox").checked;
-  var legsChecked = document.getElementById("legs-checkbox").checked;
-  var chestChecked = document.getElementById("chest-checkbox").checked;
-  var backChecked = document.getElementById("back-checkbox").checked;
-
-  if (inputChecked == "arms") {
-    console.log("tes");
-  } */
+  
+    var armsChecked = document.getElementById("arms-checkbox").checked;
+    var legsChecked = document.getElementById("legs-checkbox").checked;
+    var chestChecked = document.getElementById("chest-checkbox").checked;
+    var backChecked = document.getElementById("back-checkbox").checked;
+  
+    if (inputChecked == "arms") {
+      console.log("tes");
+    } 
 });
 
 function armsClick() {
-  document.getElementById("arms-checkbox").checked = !document.getElementById(
-    "arms-checkbox"
-  ).checked;
-  document.getElementById("arms").classList.toggle("workoutButtonToggled");
+  document.getElementById('arms-checkbox').checked = !document.getElementById('arms-checkbox').checked;
+  document.getElementById('arms').classList.toggle("workoutButtonToggled");
 }
 
 function legsClick() {
-  document.getElementById("legs-checkbox").checked = !document.getElementById(
-    "legs-checkbox"
-  ).checked;
-  document.getElementById("legs").classList.toggle("workoutButtonToggled");
+  document.getElementById('legs-checkbox').checked = !document.getElementById('legs-checkbox').checked;
+  document.getElementById('legs').classList.toggle("workoutButtonToggled");
 }
 
 function chestClick() {
-  document.getElementById("chest-checkbox").checked = !document.getElementById(
-    "chest-checkbox"
-  ).checked;
-  document.getElementById("chest").classList.toggle("workoutButtonToggled");
+  document.getElementById('chest-checkbox').checked = !document.getElementById('chest-checkbox').checked;
+  document.getElementById('chest').classList.toggle("workoutButtonToggled");
 }
 
 function backClick() {
-  document.getElementById("back-checkbox").checked = !document.getElementById(
-    "back-checkbox"
-  ).checked;
-  document.getElementById("back").classList.toggle("workoutButtonToggled");
+  document.getElementById('back-checkbox').checked = !document.getElementById('back-checkbox').checked;
+  document.getElementById('back').classList.toggle("workoutButtonToggled");
 }
 
 function runningClick() {
-  document.getElementById("running").checked = !document.getElementById(
-    "running"
-  ).checked;
-  document
-    .getElementById("runningBtn")
-    .classList.toggle("workoutButtonToggled");
+  document.getElementById('running').checked = !document.getElementById('running').checked;
+  document.getElementById('runningBtn').classList.toggle("workoutButtonToggled");
 }
 
 function jumpingClick() {
-  document.getElementById("jumping").checked = !document.getElementById(
-    "jumping"
-  ).checked;
-  document
-    .getElementById("jumpingBtn")
-    .classList.toggle("workoutButtonToggled");
+  document.getElementById('jumping').checked = !document.getElementById('jumping').checked;
+  document.getElementById('jumpingBtn').classList.toggle("workoutButtonToggled");
 }
 
 function chairClick() {
-  document.getElementById("chair").checked = !document.getElementById("chair")
-    .checked;
-  document.getElementById("chairBtn").classList.toggle("workoutButtonToggled");
+  document.getElementById('chair').checked = !document.getElementById('chair').checked;
+  document.getElementById('chairBtn').classList.toggle("workoutButtonToggled");
 }
 
 function spaceClick() {
-  document.getElementById("space").checked = !document.getElementById("space")
-    .checked;
-  document.getElementById("spaceBtn").classList.toggle("workoutButtonToggled");
+  document.getElementById('space').checked = !document.getElementById('space').checked;
+  document.getElementById('spaceBtn').classList.toggle("workoutButtonToggled");
 }
 
 const exerciseDetails = [
@@ -104,7 +110,7 @@ const exerciseDetails = [
     name: "Push-ups",
     img: "assets/images/push-up.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Starting Position: Kneel on an exercise mat or floor and bring your feet together behind you.</li>
     <li><span class="bold">Step 2</span> Slowly bend forward to place your palms flat on the mat, positioning your hands shoulder-width apart with your fingers facing forward or turned slightly inward. 
     Slowly shift your weight forward until your shoulders are positioned directly over your hands. 
@@ -130,7 +136,7 @@ const exerciseDetails = [
     name: "Push-up-rotate",
     img: "assets/images/push-up-rotate.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Start in a plank position, with your shoulders over your wrists and legs out behind you with your feet hip distance apart. 
     Pull your navel in and keep your back straight.</li>
     <li><span class="bold">Step 2</span> As you lower and exhale, bend your elbows outward to the sides. 
@@ -148,7 +154,7 @@ const exerciseDetails = [
     name: "Side-plank",
     img: "assets/images/side-plank.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Starting Position: Lie on your right side on an exercise mat with extended legs, placing your left leg directly over your right leg and and stacking your feet one on top of the other. 
     Place your right elbow directly under your shoulder, align your head with your spine and keep your hips and right knee in contact with the exercise mat.</li>
     <li><span class="bold">Step 2</span> Upward Phase: Exhale, gently contract your abdominal / core muscles to stiffen your spine and lift your hips and knees off the mat, keeping contact with the side of your right foot and keep head aligned with your spine. 
@@ -164,7 +170,7 @@ const exerciseDetails = [
     name: "Plank",
     img: "assets/images/plank.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Starting Position: Lay down with your elbows touching the floor.</li>
     <li><span class="bold">Step 2</span> When the timer starts, tense your body so that only your elbows and toes are touching the ground.</li>
     <li><span class="bold">Step 3</span> Remain like this until the timer stops.</li>
@@ -176,7 +182,7 @@ const exerciseDetails = [
     name: "Triceps-dip",
     img: "assets/images/triceps-dip.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Sit on the edge of the chair and grip the edge next to your hips. 
     Your fingers should be pointed at your feet. 
     Your legs are extended and your feet should be about hip-width apart with the heels touching the ground. 
@@ -194,7 +200,7 @@ const exerciseDetails = [
     name: "Crunch",
     img: "assets/images/crunch.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Starting Position: Lie in a supine (on your back) position on a mat with your knees bent, feet flat on the floor and heels 12 - 18" from your tailbone.</li>
     <li><span class="bold">Step 2</span> Place your hands behind your head, squeezing your scapulae (shoulder blades) together and pulling your elbows back without arching your low back. 
     This elbow position should be maintained throughout the exercise. 
@@ -216,7 +222,7 @@ const exerciseDetails = [
     name: "Squat",
     img: "assets/images/squat.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Starting Position: Stand with your feet feet hip-width apart, arms by your sides, depressing and retracting your scapulae (pull shoulders down and back) without arching your low back, and "brace" (engage your abdominal / core muscles) to stiffen your spine. 
     Downward Phase: Begin your downward phase by first shifting your hips backwards then slowly moving downwards to create a hinge-like movement at your knees. 
     Continue to lower yourself until your feel your heels about to lift off the floor. 
@@ -239,7 +245,7 @@ const exerciseDetails = [
     name: "Step-up",
     img: "assets/images/step-up.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Starting Position: Stand with your feet parallel about hip width apart while holding dumbbells in your hands with palms facing inwards. 
     Depress and retract your scapulae (pull shoulders down and back).
     Attempt to avoid shrugging your shoulder upwards.</li>
@@ -261,7 +267,7 @@ const exerciseDetails = [
     name: "Running",
     img: "assets/images/running.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1:</span> Stand straight with your feet shoulder width apart and face forward, opening up your chest.</li>
     <li><span class="bold">Step 2:</span> Start pulling your knees up, and slowly land on the balls of your feet.</li>
     <li><span class="bold">Step 3:</span> Repeat until set is complete.</li>
@@ -273,7 +279,7 @@ const exerciseDetails = [
     name: "Lunge",
     img: "assets/images/lunge.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1</span> Starting Position: Stand with your feet together. Depress and retract your scapulae (pull your shoulders down and back) without arching your low back, and "brace" (engage your abdominal/core muscles) to stiffen your spine.</li>
     <li><span class="bold">Step 2</span> In preparation to step forward, slowly lift one foot off the floor, stabilizing your body on the stance (supporting) leg. 
     Avoid any sideways tilting or swaying in your upper body and try not to move the stance (supporting) foot. 
@@ -295,7 +301,7 @@ const exerciseDetails = [
     name: "Jumping Jacks",
     img: "assets/images/jumping-jack.png",
     description: `
-    <ul>
+    <ul role="alert">
     <li><span class="bold">Step 1:</span> Start with your arms hanging naturally by your side, and your feet close.</li>
     <li><span class="bold">Step 2:</span> When jumping, you should land with your arms raised and feets wide apart.</li>
     <li><span class="bold">Step 3:</span> Alternate between having your arms raised, feet apart, and arms down, feet close.</li>
@@ -306,7 +312,8 @@ const exerciseDetails = [
     category: "hump",
     name: "Wall-sit",
     img: "assets/images/wall-sit.png",
-    description: `<ul>
+    description: `
+    <ul role="alert">
     <li><span class="bold">Step 1:</span> Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
     <li><span class="bold">Step 2:</span> Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
     <li><span class="bold">Step 3:</span> Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
@@ -372,7 +379,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () {};
+      obj.resume = function () { };
       if (oncomplete) oncomplete();
     }
     return now;
@@ -385,7 +392,7 @@ let running = false;
 let rest = false;
 
 var stop;
-const exerciseTime = 2;
+const exerciseTime = 10;
 const restTime = 3;
 
 const countdownEl = document.getElementById("countdown");
@@ -432,9 +439,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () {};
-        console.log((excerciseProgress += 10));
-        progressBar();
+        exerciseTimer.resume = function () { };
         if (currentIndex > 0) {
           // console.log("after currentIndex" + excerciseProgress++);
           renderRestAnimation();

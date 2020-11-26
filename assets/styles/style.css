@@ -39,6 +39,7 @@ figcaption {
 body {
   margin: 0.5em 3em;
   background-color: var(--secondary-color, 0.1);
+  background: url(../images/concrete.jpg);
 }
 
 /* Set primary color for the text*/
@@ -147,7 +148,7 @@ figure img {
 
 .modal-content {
   background-color: #fefefe;
-  margin: auto;
+  margin: 5em auto;
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
