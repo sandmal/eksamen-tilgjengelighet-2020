@@ -124,18 +124,18 @@ function spaceClick() {
   document.getElementById("spaceBtn").classList.toggle("workoutButtonToggled");
 }
 
-function someFunc(){
+function someFunc() {
   workout();
   showBar();
   hideButtonWork();
 }
 
-function showBar(){
-  document.getElementById('progressBar').style.display = "block";
+function showBar() {
+  document.getElementById("progressBar").style.display = "block";
 }
 
-function hideButtonWork(){
-  document.querySelector('#workout>button').style.display = "none";
+function hideButtonWork() {
+  document.querySelector("#workout>button").style.display = "none";
 }
 
 const exerciseDetails = [
