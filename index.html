@@ -75,7 +75,7 @@
               Chair
             </button>
 
-            <label for="space">Space</label>
+            <label for="space"></label>
             <input type="checkbox" value="Space" id="space" name="space" />
             <button id="spaceBtn" class="workoutButton" onclick="spaceClick()">
               Space
@@ -87,16 +87,18 @@
       </div>
     </div>
 
-    <div>
-      <p id="countdown"></p>
-      <button id="startResume" onclick="workout()">Start</button>
-      <button id="reset" onclick="reset()">Reset</button>
-    </div>
+    
 
     <div id="progressBar">
       <div id="myBar"></div>
     </div>
-    <span id="timer"></span>
+<div id="timer"></div>
+    <div>
+      <p id="countdown"></p>
+      <button id="startResume" onclick="someFunc()">Start</button>
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+
     <div id="active-workout"></div>
   </div>
 </body>
