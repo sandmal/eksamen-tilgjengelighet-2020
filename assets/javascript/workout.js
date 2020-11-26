@@ -46,6 +46,7 @@ window.onclick = function (event) {
   }
 };
 
+
 window.addEventListener('scroll', () => {
   document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
 });
@@ -262,7 +263,7 @@ const exerciseDetails = [
     `,
   },
   {
-    category: "legs",
+    category: "hump",
     name: "Running",
     img: "assets/images/running.png",
     description: `
@@ -274,7 +275,7 @@ const exerciseDetails = [
     `,
   },
   {
-    category: "legs",
+    category: "hump",
     name: "Lunge",
     img: "assets/images/lunge.png",
     description: `
@@ -409,28 +410,21 @@ function workout() {
 
   // Filtrering
   exercises = exercises.filter((exercise) => {
-    return ["legs"].includes(exercise.category);
+    return ["hump"].includes(exercise.category);
     // return ["Wall-sit"].includes(exercise.name);
   });
 
   let currentIndex = exercises.length - 1;
-  let excerciseProgress = 0;
-  var i = 0;
-  function renderProgressBar() {
-    if (i == 0) {
-      i = 1;
-      const progress = document.getElementById("myBar");
-      let width = excerciseProgress;
-      var id = setInterval(frame, 10);
-      function frame() {
-        if (width >= 100) {
-          clearInterval(id);
-          i = 0;
-        } else {
-          width++;
-          progress.style.width = width + "%";
-        }
-      }
+  var excerciseProgress = 0;
+  function progressBar() {
+    var element = document.getElementById("progressBar");
+    if (excerciseProgress >= 100) {
+      // clearInterval(identity);
+    } else {
+      element.style.width = excerciseProgress + "%";
+      element.innerHTML = excerciseProgress * 1 + "%";
+
+      // console.log(excerciseProgress + "Hello");
     }
   }
 
@@ -438,25 +432,26 @@ function workout() {
     document.getElementById("startResume").innerHTML = "Pause";
     running = true;
 
+    // var identity = setInterval(scene, 10);
+
     (function workoutLoop() {
       renderCurrentExercise(exercises[currentIndex]);
-      excerciseProgress++;
-
-      console.log(excerciseProgress);
-      renderProgressBar();
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
         exerciseTimer.resume = function () { };
         if (currentIndex > 0) {
+          // console.log("after currentIndex" + excerciseProgress++);
           renderRestAnimation();
-
           exerciseTimer = new startTimer(restTime, "timer", () => {
             if (currentIndex > 0) {
               currentIndex -= 1;
               renderCurrentExercise(exercises[currentIndex]);
+              // console.log(excerciseProgress++);
             }
             if (currentIndex >= 0) {
+              console.log((excerciseProgress += 10));
+              progressBar();
               workoutLoop();
             }
           });
