@@ -52,7 +52,7 @@ window.addEventListener('scroll', () => {
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  /* 
+  
     var armsChecked = document.getElementById("arms-checkbox").checked;
     var legsChecked = document.getElementById("legs-checkbox").checked;
     var chestChecked = document.getElementById("chest-checkbox").checked;
@@ -60,7 +60,7 @@ form.addEventListener("submit", function (event) {
   
     if (inputChecked == "arms") {
       console.log("tes");
-    } */
+    } 
 });
 
 function armsClick() {
