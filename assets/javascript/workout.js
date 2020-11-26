@@ -131,12 +131,12 @@ function someFunc() {
 }
 
 function showBar() {
-  document.getElementById('progressBar').style.display = "block";
+  document.getElementById("progressBar").style.display = "block";
 }
 
 function hideButtonWork() {
-  document.querySelector('#workout>button').style.display = "none";
-}
+  document.querySelector("#workout>button").style.display = "none";
+
 
 const exerciseDetails = [
   {
