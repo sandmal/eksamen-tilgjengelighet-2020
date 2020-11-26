@@ -39,7 +39,7 @@ figcaption {
 body {
   margin: 0.5em 3em;
   background-color: var(--secondary-color, 0.1);
-  background: url(../images/concrete.jpg);
+  /* background: url(../images/concrete.jpg); */
 }
 
 /* Set primary color for the text*/
@@ -161,7 +161,7 @@ figure img {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 5em auto;
+  margin: 1em auto 5em auto;
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
@@ -208,15 +208,22 @@ li {
   font-weight: bold;
 }
 
-#myProgress {
+#progressBar {
+  display: none;
   width: 100%;
-  background-color: #ddd;
+  background-color: var(--secondary-color);
+  border: 1px solid black;
 }
 
 #myBar {
   width: 1%;
   height: 30px;
   background-color: var(--primary-color);
+}
+
+ul {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
 }
 
 label {
@@ -252,6 +259,12 @@ input[type="submit"] {
 .workoutButtonToggled {
   background-color: var(--primary-color);
   color: #ffffff;
+}
+
+#timer {
+  font-size: 2em;
+  text-align: center;
+  padding: 0.3em;
 }
 
 /* Mediaqueries for different styles*/

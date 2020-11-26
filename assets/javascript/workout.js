@@ -124,6 +124,20 @@ function spaceClick() {
   document.getElementById("spaceBtn").classList.toggle("workoutButtonToggled");
 }
 
+function someFunc(){
+  workout();
+  showBar();
+  hideButtonWork();
+}
+
+function showBar(){
+  document.getElementById('progressBar').style.display = "block";
+}
+
+function hideButtonWork(){
+  document.querySelector('#workout>button').style.display = "none";
+}
+
 const exerciseDetails = [
   {
     category: "arms",
