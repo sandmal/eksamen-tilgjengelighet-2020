@@ -136,7 +136,7 @@ function showBar() {
 
 function hideButtonWork() {
   document.querySelector("#workout>button").style.display = "none";
-
+}
 
 const exerciseDetails = [
   {
