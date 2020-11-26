@@ -461,7 +461,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () { };
+      obj.resume = function () {};
       if (oncomplete) oncomplete();
     }
     return now;
@@ -516,7 +516,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () { };
+        exerciseTimer.resume = function () {};
         excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {
