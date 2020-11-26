@@ -11,9 +11,9 @@ const form = document.querySelector("form");
 
 btn.onclick = function () {
   modal.style.display = "block";
-  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+  const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
   const body = document.body;
-  body.style.position = 'fixed';
+  body.style.position = "fixed";
   body.style.top = `-${scrollY}`;
 };
 
@@ -21,18 +21,18 @@ close.onclick = function () {
   modal.style.display = "none";
   const body = document.body;
   const scrollY = body.style.top;
-  body.style.position = '';
-  body.style.top = '';
-  window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  body.style.position = "";
+  body.style.top = "";
+  window.scrollTo(0, parseInt(scrollY || "0") * -1);
 };
 
 closeBtn.onclick = function () {
   modal.style.display = "none";
   const body = document.body;
   const scrollY = body.style.top;
-  body.style.position = '';
-  body.style.top = '';
-  window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  body.style.position = "";
+  body.style.top = "";
+  window.scrollTo(0, parseInt(scrollY || "0") * -1);
 };
 
 window.onclick = function (event) {
@@ -40,68 +40,88 @@ window.onclick = function (event) {
     modal.style.display = "none";
     const body = document.body;
     const scrollY = body.style.top;
-    body.style.position = '';
-    body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    body.style.position = "";
+    body.style.top = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
   }
 };
 
-
-window.addEventListener('scroll', () => {
-  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+window.addEventListener("scroll", () => {
+  document.documentElement.style.setProperty(
+    "--scroll-y",
+    `${window.scrollY}px`
+  );
 });
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  
-    var armsChecked = document.getElementById("arms-checkbox").checked;
-    var legsChecked = document.getElementById("legs-checkbox").checked;
-    var chestChecked = document.getElementById("chest-checkbox").checked;
-    var backChecked = document.getElementById("back-checkbox").checked;
-  
-    if (inputChecked == "arms") {
-      console.log("tes");
-    } 
+
+  var armsChecked = document.getElementById("arms-checkbox").checked;
+  var legsChecked = document.getElementById("legs-checkbox").checked;
+  var chestChecked = document.getElementById("chest-checkbox").checked;
+  var backChecked = document.getElementById("back-checkbox").checked;
+
+  if (inputChecked == "arms") {
+    console.log("tes");
+  }
 });
 
 function armsClick() {
-  document.getElementById('arms-checkbox').checked = !document.getElementById('arms-checkbox').checked;
-  document.getElementById('arms').classList.toggle("workoutButtonToggled");
+  document.getElementById("arms-checkbox").checked = !document.getElementById(
+    "arms-checkbox"
+  ).checked;
+  document.getElementById("arms").classList.toggle("workoutButtonToggled");
 }
 
 function legsClick() {
-  document.getElementById('legs-checkbox').checked = !document.getElementById('legs-checkbox').checked;
-  document.getElementById('legs').classList.toggle("workoutButtonToggled");
+  document.getElementById("legs-checkbox").checked = !document.getElementById(
+    "legs-checkbox"
+  ).checked;
+  document.getElementById("legs").classList.toggle("workoutButtonToggled");
 }
 
 function chestClick() {
-  document.getElementById('chest-checkbox').checked = !document.getElementById('chest-checkbox').checked;
-  document.getElementById('chest').classList.toggle("workoutButtonToggled");
+  document.getElementById("chest-checkbox").checked = !document.getElementById(
+    "chest-checkbox"
+  ).checked;
+  document.getElementById("chest").classList.toggle("workoutButtonToggled");
 }
 
 function backClick() {
-  document.getElementById('back-checkbox').checked = !document.getElementById('back-checkbox').checked;
-  document.getElementById('back').classList.toggle("workoutButtonToggled");
+  document.getElementById("back-checkbox").checked = !document.getElementById(
+    "back-checkbox"
+  ).checked;
+  document.getElementById("back").classList.toggle("workoutButtonToggled");
 }
 
 function runningClick() {
-  document.getElementById('running').checked = !document.getElementById('running').checked;
-  document.getElementById('runningBtn').classList.toggle("workoutButtonToggled");
+  document.getElementById("running").checked = !document.getElementById(
+    "running"
+  ).checked;
+  document
+    .getElementById("runningBtn")
+    .classList.toggle("workoutButtonToggled");
 }
 
 function jumpingClick() {
-  document.getElementById('jumping').checked = !document.getElementById('jumping').checked;
-  document.getElementById('jumpingBtn').classList.toggle("workoutButtonToggled");
+  document.getElementById("jumping").checked = !document.getElementById(
+    "jumping"
+  ).checked;
+  document
+    .getElementById("jumpingBtn")
+    .classList.toggle("workoutButtonToggled");
 }
 
 function chairClick() {
-  document.getElementById('chair').checked = !document.getElementById('chair').checked;
-  document.getElementById('chairBtn').classList.toggle("workoutButtonToggled");
+  document.getElementById("chair").checked = !document.getElementById("chair")
+    .checked;
+  document.getElementById("chairBtn").classList.toggle("workoutButtonToggled");
 }
 
 function spaceClick() {
-  document.getElementById('space').checked = !document.getElementById('space').checked;
-  document.getElementById('spaceBtn').classList.toggle("workoutButtonToggled");
+  document.getElementById("space").checked = !document.getElementById("space")
+    .checked;
+  document.getElementById("spaceBtn").classList.toggle("workoutButtonToggled");
 }
 
 const exerciseDetails = [
@@ -379,7 +399,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () { };
+      obj.resume = function () {};
       if (oncomplete) oncomplete();
     }
     return now;
@@ -392,7 +412,7 @@ let running = false;
 let rest = false;
 
 var stop;
-const exerciseTime = 10;
+const exerciseTime = 5;
 const restTime = 3;
 
 const countdownEl = document.getElementById("countdown");
@@ -410,21 +430,18 @@ function workout() {
 
   // Filtrering
   exercises = exercises.filter((exercise) => {
-    return ["hump"].includes(exercise.category);
+    return ["arms"].includes(exercise.category);
     // return ["Wall-sit"].includes(exercise.name);
   });
 
   let currentIndex = exercises.length - 1;
   var excerciseProgress = 0;
   function progressBar() {
-    var element = document.getElementById("progressBar");
-    if (excerciseProgress >= 100) {
-      // clearInterval(identity);
+    var element = document.getElementById("myBar");
+    if (excerciseProgress >= 1000) {
     } else {
       element.style.width = excerciseProgress + "%";
-      element.innerHTML = excerciseProgress * 1 + "%";
-
-      // console.log(excerciseProgress + "Hello");
+      // element.innerHTML = excerciseProgress * 1 + "%";
     }
   }
 
@@ -432,27 +449,25 @@ function workout() {
     document.getElementById("startResume").innerHTML = "Pause";
     running = true;
 
-    // var identity = setInterval(scene, 10);
-
     (function workoutLoop() {
       renderCurrentExercise(exercises[currentIndex]);
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () { };
+        exerciseTimer.resume = function () {};
+        excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
+        progressBar();
         if (currentIndex > 0) {
-          // console.log("after currentIndex" + excerciseProgress++);
           renderRestAnimation();
           exerciseTimer = new startTimer(restTime, "timer", () => {
             if (currentIndex > 0) {
               currentIndex -= 1;
               renderCurrentExercise(exercises[currentIndex]);
-              // console.log(excerciseProgress++);
             }
             if (currentIndex >= 0) {
-              console.log((excerciseProgress += 10));
-              progressBar();
+              excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
               workoutLoop();
+              progressBar();
             }
           });
         }
