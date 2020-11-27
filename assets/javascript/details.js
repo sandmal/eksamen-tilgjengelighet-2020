@@ -5,7 +5,7 @@ const exerciseDetails = [
         name: "Push-ups",
         img: "assets/images/push-up.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1</span> Starting Position: Kneel on an exercise mat or floor and bring your feet together behind you.</li>
         <li><span class="bold">Step 2</span> Slowly bend forward to place your palms flat on the mat, positioning your hands shoulder-width apart with your fingers facing forward or turned slightly inward. 
         Slowly shift your weight forward until your shoulders are positioned directly over your hands. 
@@ -23,8 +23,8 @@ const exerciseDetails = [
         <li><span class="bold">Step 5</span> An alternative position is to turn your hands to face forwards and keep your your elbows close to your sides during the downward phase. 
         This shifts the emphasis from the chest muscles onto the triceps and may reduce stresses in the shoulder joint.
         Pushing through the heel and outside surface of your palm provides greater force in your press and stability to your shoulders.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
     {
         category: ["arms", "chest", "abs", "shoulders"],
@@ -32,7 +32,7 @@ const exerciseDetails = [
         name: "Push-up-rotate",
         img: "assets/images/push-up-rotate.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1</span> Start in a plank position, with your shoulders over your wrists and legs out behind you with your feet hip distance apart. 
         Pull your navel in and keep your back straight.</li>
         <li><span class="bold">Step 2</span> As you lower and exhale, bend your elbows outward to the sides. 
@@ -42,8 +42,8 @@ const exerciseDetails = [
         Hold for one breath, then move back into plank position.</li>
         <li><span class="bold">Step 4</span> Repeat the push-up, twisting the opposite direction bringing your left arm toward the ceiling. 
         Return to plank position to complete one rep.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
     {
         category: ["abs", "butt", "shoulders"],
@@ -51,7 +51,7 @@ const exerciseDetails = [
         name: "Side-plank",
         img: "assets/images/side-plank.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1</span> Starting Position: Lie on your right side on an exercise mat with extended legs, placing your left leg directly over your right leg and and stacking your feet one on top of the other. 
         Place your right elbow directly under your shoulder, align your head with your spine and keep your hips and right knee in contact with the exercise mat.</li>
         <li><span class="bold">Step 2</span> Upward Phase: Exhale, gently contract your abdominal / core muscles to stiffen your spine and lift your hips and knees off the mat, keeping contact with the side of your right foot and keep head aligned with your spine. 
@@ -59,8 +59,8 @@ const exerciseDetails = [
         <li><span class="bold">Step 3</span> Lowering Phase: Inhale and gently return yourself to your starting position. Alternate sides and repeat.</li>
         <li><span class="bold">Step 4</span> Exercise Variation: You can increase the intensity of this exercise by (1) increasing the length of time you are in the raised position, (2) raising the upper leg off the lower leg or (3) raising the lower leg off the floor and maintaining contact with your elbow and the foot of the upper leg only.
         When raising the upper leg off the lower leg, there is no need to raise it to a level beyond parallel with the floor.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
     {
         category: ["abs", "butt"],
@@ -68,12 +68,12 @@ const exerciseDetails = [
         name: "Plank",
         img: "assets/images/plank.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1</span> Starting Position: Lay down with your elbows touching the floor.</li>
         <li><span class="bold">Step 2</span> When the timer starts, tense your body so that only your elbows and toes are touching the ground.</li>
         <li><span class="bold">Step 3</span> Remain like this until the timer stops.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
     {
         category: ["triceps"],
@@ -81,7 +81,7 @@ const exerciseDetails = [
         name: "Triceps-dip",
         img: "assets/images/triceps-dip.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1</span> Sit on the edge of the chair and grip the edge next to your hips. 
         Your fingers should be pointed at your feet. 
         Your legs are extended and your feet should be about hip-width apart with the heels touching the ground. 
@@ -91,8 +91,8 @@ const exerciseDetails = [
         <li><span class="bold">Step 4</span> Slowly push yourself back up to the start position and repeat. 
         Control the movement throughout the range of motion.</li>
         <li><span class="bold">Step 5</span> Begin with 3 sets of 10 repetitions and increase your sets and reps over several weeks as you build muscle and strength in your triceps.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
     {
         category: ["abs"],
@@ -100,7 +100,7 @@ const exerciseDetails = [
         name: "Crunch",
         img: "assets/images/crunch.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1</span> Starting Position: Lie in a supine (on your back) position on a mat with your knees bent, feet flat on the floor and heels 12 - 18" from your tailbone.</li>
         <li><span class="bold">Step 2</span> Place your hands behind your head, squeezing your scapulae (shoulder blades) together and pulling your elbows back without arching your low back. 
         This elbow position should be maintained throughout the exercise. 
@@ -113,8 +113,8 @@ const exerciseDetails = [
         Individuals usually perform this movement too rapidly and recruit the hip flexors to assist with the upward phase. 
         This technique tilts the pelvis anteriorly, increasing the stress on the low back and should be avoided. 
         The abdominals connect the rib cage to the pelvis so the movement should focus on bringing these two body parts closer together while keeping the neck and shoulders relaxed.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
 
     {
@@ -138,8 +138,8 @@ const exerciseDetails = [
         It is suggested, you first learn how to squat and land before attempting to jump. 
         Once you have mastered the hip-hinge mechanism, begin with small jumps, but emphasize your landing mechanics. 
         Only progress to more explosive jumps once you have mastered your landing mechanics.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
     {
         category: ["butt", "thighs"],
@@ -147,7 +147,7 @@ const exerciseDetails = [
         name: "Step-up",
         img: "assets/images/step-up.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1</span> Starting Position: Stand with your feet parallel about hip width apart while holding dumbbells in your hands with palms facing inwards. 
         Depress and retract your scapulae (pull shoulders down and back).
         Attempt to avoid shrugging your shoulder upwards.</li>
@@ -206,12 +206,12 @@ const exerciseDetails = [
         name: "Jumping Jacks",
         img: "assets/images/jumping-jack.png",
         description: `
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1:</span> Start with your arms hanging naturally by your side, and your feet close.</li>
         <li><span class="bold">Step 2:</span> When jumping, you should land with your arms raised and feets wide apart.</li>
         <li><span class="bold">Step 3:</span> Alternate between having your arms raised, feet apart, and arms down, feet close.</li>
-      </ul>
-      `,
+    </ul>
+    `,
     },
     {
         category: ["quads", "glutes", "calves"],
@@ -219,7 +219,7 @@ const exerciseDetails = [
         name: "Wall-sit",
         img: "assets/images/wall-sit.png",
         description: ` 
-      <ul role="alert">
+    <ul role="alert">
         <li><span class="bold">Step 1:</span> Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
         <li><span class="bold">Step 2:</span> Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
         <li><span class="bold">Step 3:</span> Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
@@ -227,6 +227,6 @@ const exerciseDetails = [
         <li><span class="bold">Step 5:</span> Hold the position for 20 to 60 seconds.</li>
         <li><span class="bold">Step 6:</span> Slide slowly back up the wall to a standing position.</li>
         <li><span class="bold">Step 7:</span> Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
-      </ul>`,
+    </ul>`,
     },
 ];
