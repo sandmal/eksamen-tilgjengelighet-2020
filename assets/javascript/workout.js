@@ -53,20 +53,12 @@ window.addEventListener("scroll", () => {
   );
 });
 
+// DON'T DELETE THIS, IT BREAKS EVERYTHING
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  /* 
-  var armsChecked = document.getElementById("arms-checkbox").checked;
-  var legsChecked = document.getElementById("legs-checkbox").checked;
-  var chestChecked = document.getElementById("chest-checkbox").checked;
-  var backChecked = document.getElementById("shoulders-checkbox").checked;
-
-  if (inputChecked == "arms") {
-    console.log("tes");
-  } */
 });
 
-function reset() {
+function reset(){
   location.reload();
 }
 
@@ -93,9 +85,9 @@ function chestClick() {
 }
 
 function shoulderClick() {
-  document.getElementById(
+  document.getElementById("shoulders-checkbox").checked = !document.getElementById(
     "shoulders-checkbox"
-  ).checked = !document.getElementById("shoulders-checkbox").checked;
+  ).checked;
   document.getElementById("shoulders").classList.toggle("workoutButtonToggled");
 }
 
@@ -140,6 +132,13 @@ function calvesClick() {
   ).checked;
   document.getElementById("calves").classList.toggle("workoutButtonToggled");
 }
+
+function tricepsClick() {
+  document.getElementById("triceps-checkbox").checked = !document.getElementById(
+    "triceps-checkbox"
+  ).checked;
+  document.getElementById("triceps").classList.toggle("workoutButtonToggled");
+}
 // End functions for body parts
 
 function runningClick() {
@@ -173,7 +172,8 @@ function spaceClick() {
 }
 
 function someFunc() {
-  workout();
+  //workout();
+  checkBox();
   showBar();
   hideButtonWork();
 }
@@ -187,52 +187,52 @@ function hideButtonWork() {
 }
 
 const exerciseDetails = [
-  // {
-  //   category: "arms",
-  //   name: "Push-ups",
-  //   img: "assets/images/push-up.png",
-  //   description: `
-  //   <ul role="alert">
-  //     <li><span class="bold">Step 1</span> Starting Position: Kneel on an exercise mat or floor and bring your feet together behind you.</li>
-  //     <li><span class="bold">Step 2</span> Slowly bend forward to place your palms flat on the mat, positioning your hands shoulder-width apart with your fingers facing forward or turned slightly inward.
-  //     Slowly shift your weight forward until your shoulders are positioned directly over your hands.
-  //     Reposition your hands as needed to allow full extension of your body without any bend at the hips or knees.
-  //     Stiffen your torso by contracting your core/abdominal muscles ("bracing"), your glute and quadriceps muscles and align your head with your spine.
-  //     Place your feet together with your ankles dorsiflexed (toes pointed towards your shins).</li>
-  //     <li><span class="bold">Step 3</span> Downward Phase: Slowly lower your body towards the floor while maintaining a rigid torso and head aligned with your spine.
-  //     Do not allow your low back to sag or your hips to hike upwards during this downward phase.
-  //     Continue to lower yourself until your chest or chin touch the mat/floor.
-  //     Allow your elbows to flare outwards during the lowering phase.</li>
-  //     <li><span class="bold">Step 4</span> Upward Phase: Press upwards through your arms while maintaining a rigid torso and head aligned with your spine.
-  //     For extra strength think about pushing the floor away from you.
-  //     Do not allow your low back to sag or your hips to hike upwards.
-  //     Continue pressing until the arms are fully extended at the elbows.</li>
-  //     <li><span class="bold">Step 5</span> An alternative position is to turn your hands to face forwards and keep your your elbows close to your sides during the downward phase.
-  //     This shifts the emphasis from the chest muscles onto the triceps and may reduce stresses in the shoulder joint.
-  //     Pushing through the heel and outside surface of your palm provides greater force in your press and stability to your shoulders.</li>
-  //   </ul>
-  //   `,
-  // },
-  // {
-  //   category: "arms",
-  //   name: "Push-up-rotate",
-  //   img: "assets/images/push-up-rotate.png",
-  //   description: `
-  //   <ul role="alert">
-  //     <li><span class="bold">Step 1</span> Start in a plank position, with your shoulders over your wrists and legs out behind you with your feet hip distance apart.
-  //     Pull your navel in and keep your back straight.</li>
-  //     <li><span class="bold">Step 2</span> As you lower and exhale, bend your elbows outward to the sides.
-  //     Hold at the bottom for one breath.</li>
-  //     <li><span class="bold">Step 3</span> Raise back up to top push-up position.
-  //     As you reach the top, keep moving in a fluid motion to side plank position: release your right arm and raise it to the ceiling, keeping your body in a long diagonal line.
-  //     Hold for one breath, then move back into plank position.</li>
-  //     <li><span class="bold">Step 4</span> Repeat the push-up, twisting the opposite direction bringing your left arm toward the ceiling.
-  //     Return to plank position to complete one rep.</li>
-  //   </ul>
-  //   `,
-  // },
   {
-    category: ["arms", "legs"],
+    category: ["arms", "chest", "shoulders"], 
+    name: "Push-ups",
+    img: "assets/images/push-up.png",
+    description: `
+    <ul role="alert">
+      <li><span class="bold">Step 1</span> Starting Position: Kneel on an exercise mat or floor and bring your feet together behind you.</li>
+      <li><span class="bold">Step 2</span> Slowly bend forward to place your palms flat on the mat, positioning your hands shoulder-width apart with your fingers facing forward or turned slightly inward. 
+      Slowly shift your weight forward until your shoulders are positioned directly over your hands. 
+      Reposition your hands as needed to allow full extension of your body without any bend at the hips or knees. 
+      Stiffen your torso by contracting your core/abdominal muscles ("bracing"), your glute and quadriceps muscles and align your head with your spine. 
+      Place your feet together with your ankles dorsiflexed (toes pointed towards your shins).</li>
+      <li><span class="bold">Step 3</span> Downward Phase: Slowly lower your body towards the floor while maintaining a rigid torso and head aligned with your spine. 
+      Do not allow your low back to sag or your hips to hike upwards during this downward phase. 
+      Continue to lower yourself until your chest or chin touch the mat/floor. 
+      Allow your elbows to flare outwards during the lowering phase.</li>
+      <li><span class="bold">Step 4</span> Upward Phase: Press upwards through your arms while maintaining a rigid torso and head aligned with your spine. 
+      For extra strength think about pushing the floor away from you. 
+      Do not allow your low back to sag or your hips to hike upwards. 
+      Continue pressing until the arms are fully extended at the elbows.</li>
+      <li><span class="bold">Step 5</span> An alternative position is to turn your hands to face forwards and keep your your elbows close to your sides during the downward phase. 
+      This shifts the emphasis from the chest muscles onto the triceps and may reduce stresses in the shoulder joint.
+      Pushing through the heel and outside surface of your palm provides greater force in your press and stability to your shoulders.</li>
+    </ul>
+    `,
+  },
+  {
+    category: ["arms", "chest", "abs", "shoulders"],
+    name: "Push-up-rotate",
+    img: "assets/images/push-up-rotate.png",
+    description: `
+    <ul role="alert">
+      <li><span class="bold">Step 1</span> Start in a plank position, with your shoulders over your wrists and legs out behind you with your feet hip distance apart. 
+      Pull your navel in and keep your back straight.</li>
+      <li><span class="bold">Step 2</span> As you lower and exhale, bend your elbows outward to the sides. 
+      Hold at the bottom for one breath.</li>
+      <li><span class="bold">Step 3</span> Raise back up to top push-up position. 
+      As you reach the top, keep moving in a fluid motion to side plank position: release your right arm and raise it to the ceiling, keeping your body in a long diagonal line. 
+      Hold for one breath, then move back into plank position.</li>
+      <li><span class="bold">Step 4</span> Repeat the push-up, twisting the opposite direction bringing your left arm toward the ceiling. 
+      Return to plank position to complete one rep.</li>
+    </ul>
+    `,
+  },
+  {
+    category: ["abs", "butt", "shoulders"],
     name: "Side-plank",
     img: "assets/images/side-plank.png",
     description: `
@@ -248,7 +248,7 @@ const exerciseDetails = [
     `,
   },
   {
-    category: ["back", "chest"],
+    category: ["abs", "butt"],
     name: "Plank",
     img: "assets/images/plank.png",
     description: `
@@ -260,7 +260,7 @@ const exerciseDetails = [
     `,
   },
   {
-    category: ["back", "chest"],
+    category: ["triceps"],
     name: "Triceps-dip",
     img: "assets/images/triceps-dip.png",
     description: `
@@ -278,7 +278,7 @@ const exerciseDetails = [
     `,
   },
   {
-    category: ["arms", "legs"],
+    category: ["abs"],
     name: "Crunch",
     img: "assets/images/crunch.png",
     description: `
@@ -299,112 +299,112 @@ const exerciseDetails = [
     `,
   },
 
-  //   {
-  //     category: "legs",
-  //     name: "Squat",
-  //     img: "assets/images/squat.png",
-  //     description: `
-  //       <ul role="alert">
-  //       <li><span class="bold">Step 1</span> Starting Position: Stand with your feet feet hip-width apart, arms by your sides, depressing and retracting your scapulae (pull shoulders down and back) without arching your low back, and "brace" (engage your abdominal / core muscles) to stiffen your spine.
-  //       Downward Phase: Begin your downward phase by first shifting your hips backwards then slowly moving downwards to create a hinge-like movement at your knees.
-  //       Continue to lower yourself until your feel your heels about to lift off the floor.
-  //       Try to maintain a flat back by bending forward at the hips, keep your head facing forward and position to your arms where comfortable or where they offer the greatest degree of balance support.</li>
-  //       <li><span class="bold">Step 2</span> Jumping Movement: With ONLY a very brief pause at the bottom of your downward phase, explode upwards through your lower extremity, achieving triple extension (pushing and extending your ankles, knees and hips simultaneously).
-  //       As you jump into the air, keep your feet level with each other and parallel with the floor.</li>
-  //       <li><span class="bold">Step 3</span> Landing: The most important components of the landing phase are correct foot position and avoiding excessive forward movement in your lower extremity which places additional stresses upon your knees.
-  //       Attempt to land softly and quietly on the mid-foot, rolling backwards quickly towards the heels.
-  //       Always push your hips backwards and drop them downwards to absorb the impacting forces associated with jumping.
-  //       Avoid locking out your knees or quads on your landing as this may lead to potential knee injuries.</li>
-  //       <li><span class="bold">Step 4</span> Exercise Variation: Perform repeated jumps with no rest in between each repetition.
-  //       It is suggested, you first learn how to squat and land before attempting to jump.
-  //       Once you have mastered the hip-hinge mechanism, begin with small jumps, but emphasize your landing mechanics.
-  //       Only progress to more explosive jumps once you have mastered your landing mechanics.</li>
-  //     </ul>
-  //     `,
-  //   },
-  //   {
-  //     category: "legs",
-  //     name: "Step-up",
-  //     img: "assets/images/step-up.png",
-  //     description: `
-  //     <ul role="alert">
-  //       <li><span class="bold">Step 1</span> Starting Position: Stand with your feet parallel about hip width apart while holding dumbbells in your hands with palms facing inwards.
-  //       Depress and retract your scapulae (pull shoulders down and back).
-  //       Attempt to avoid shrugging your shoulder upwards.</li>
-  //       <li><span class="bold">Step 2</span> pward Phase: Slowly step to place your right foot on a platform, placing your foot firmly on the deck while keeping your torso upright and aligning your knee over your second toe.
-  //       Push off with the trailing (left) leg to raise your body onto the platform placing that foot alongside your leading (right) foot.
-  //       During this transition, your torso and your right tibia (shinbone) will move slightly forward past vertical, but try to avoid excessive forward movement.</li>
-  //       <li><span class="bold">Step 3</span> Downward Phase: Slowly load the weight of your body into your leading (right) foot, step backwards to place the trailing (left) foot on the floor in its starting position.
-  //       Allow your body to lean slightly forward during the step-down movement. Load your weight into your trailing (left) foot and step off the platform with your leading (right) foot, returning to your starting position.
-  //       Repeat for the opposite side.</li>
-  //       <li><span class="bold">Step 4</span> An exercise progression is to step-up onto one leg only and remain standing on a single-leg before stepping back down.
-  //       Single-leg stepping is a functional movement we perform daily.
-  //       Always monitor your foot, ankle and knee position.
-  //       Avoid movement of your foot and ankle (collapsing in or out), and always attempt to keep your knee aligned over your second toe.</li>
-  //     </ul>
-  //     `,
-  //   },
-  //   {
-  //     category: "hump",
-  //     name: "Running",
-  //     img: "assets/images/running.png",
-  //     description: `
-  //     <ul role="alert">
-  //       <li><span class="bold">Step 1:</span> Stand straight with your feet shoulder width apart and face forward, opening up your chest.</li>
-  //       <li><span class="bold">Step 2:</span> Start pulling your knees up, and slowly land on the balls of your feet.</li>
-  //       <li><span class="bold">Step 3:</span> Repeat until set is complete.</li>
-  //     </ul>
-  //     `,
-  //   },
-  //   {
-  //     category: "hump",
-  //     name: "Lunge",
-  //     img: "assets/images/lunge.png",
-  //     description: `
-  //     <ul role="alert">
-  //       <li><span class="bold">Step 1</span> Starting Position: Stand with your feet together. Depress and retract your scapulae (pull your shoulders down and back) without arching your low back, and "brace" (engage your abdominal/core muscles) to stiffen your spine.</li>
-  //       <li><span class="bold">Step 2</span> In preparation to step forward, slowly lift one foot off the floor, stabilizing your body on the stance (supporting) leg.
-  //       Avoid any sideways tilting or swaying in your upper body and try not to move the stance (supporting) foot.
-  //       Hold this position momentarily before stepping forward.
-  //       The raised (swing) leg should initiate contact with a heel strike first, slowly transferring your body weight into the leading (forward) foot placed firmly on the floor.
-  //       As you load into this leg, avoid any sideways tilting or swaying in your upper body and try not to move the stance (supporting) foot.</li>
-  //       <li><span class="bold">Step 3</span> As you lunge forward, focus more on dropping your hips towards the floor rather than driving your hips forward.
-  //       This will help control the amount of forward movement of your shinbone (forward tibial translation) over your foot.
-  //       Continue lowering your body to a comfortable position or until your front thigh becomes parallel with the floor and your tibia (shinbone) is in a slight forward lean.
-  //       While lunging, simultaneously, bend forward at your hips, maintaining a flat back.</li>
-  //       <li><span class="bold">Step 4</span> Firmly push off with your front leg, activating both your quads and glutes (thighs and butt muscles) to return to your upright, starting position.
-  //       We suggest you first learn how to perform single leg-stands on the ground before performing this forward lunge.
-  //       Once you master the forward lunge, you can progress to doing a lunge using arm drivers and mult-directional glute activation lunges.</li>
-  //     </ul>
-  //     `,
-  //   },
-  //   {
-  //     category: "hump",
-  //     name: "Jumping Jacks",
-  //     img: "assets/images/jumping-jack.png",
-  //     description: `
-  //     <ul role="alert">
-  //       <li><span class="bold">Step 1:</span> Start with your arms hanging naturally by your side, and your feet close.</li>
-  //       <li><span class="bold">Step 2:</span> When jumping, you should land with your arms raised and feets wide apart.</li>
-  //       <li><span class="bold">Step 3:</span> Alternate between having your arms raised, feet apart, and arms down, feet close.</li>
-  //     </ul>
-  //     `,
-  //   },
-  //   {
-  //     category: "hump",
-  //     name: "Wall-sit",
-  //     img: "assets/images/wall-sit.png",
-  //     description: `
-  //     <ul role="alert">
-  //       <li><span class="bold">Step 1:</span> Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
-  //       <li><span class="bold">Step 2:</span> Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
-  //       <li><span class="bold">Step 3:</span> Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
-  //       <li><span class="bold">Step 4:</span> Keep your back flat against the wall.</li>
-  //       <li><span class="bold">Step 5:</span> Hold the position for 20 to 60 seconds.</li>
-  //       <li><span class="bold">Step 6:</span> Slide slowly back up the wall to a standing position.</li>
-  //       <li><span class="bold">Step 7:</span> Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
-  //     </ul>`,
-  //   },
+  {
+    category: ["butt", "thighs"],
+    name: "Squat",
+    img: "assets/images/squat.png",
+    description: `
+      <ul role="alert">
+      <li><span class="bold">Step 1</span> Starting Position: Stand with your feet feet hip-width apart, arms by your sides, depressing and retracting your scapulae (pull shoulders down and back) without arching your low back, and "brace" (engage your abdominal / core muscles) to stiffen your spine. 
+      Downward Phase: Begin your downward phase by first shifting your hips backwards then slowly moving downwards to create a hinge-like movement at your knees. 
+      Continue to lower yourself until your feel your heels about to lift off the floor. 
+      Try to maintain a flat back by bending forward at the hips, keep your head facing forward and position to your arms where comfortable or where they offer the greatest degree of balance support.</li>
+      <li><span class="bold">Step 2</span> Jumping Movement: With ONLY a very brief pause at the bottom of your downward phase, explode upwards through your lower extremity, achieving triple extension (pushing and extending your ankles, knees and hips simultaneously). 
+      As you jump into the air, keep your feet level with each other and parallel with the floor.</li>
+      <li><span class="bold">Step 3</span> Landing: The most important components of the landing phase are correct foot position and avoiding excessive forward movement in your lower extremity which places additional stresses upon your knees. 
+      Attempt to land softly and quietly on the mid-foot, rolling backwards quickly towards the heels. 
+      Always push your hips backwards and drop them downwards to absorb the impacting forces associated with jumping. 
+      Avoid locking out your knees or quads on your landing as this may lead to potential knee injuries.</li>
+      <li><span class="bold">Step 4</span> Exercise Variation: Perform repeated jumps with no rest in between each repetition.
+      It is suggested, you first learn how to squat and land before attempting to jump. 
+      Once you have mastered the hip-hinge mechanism, begin with small jumps, but emphasize your landing mechanics. 
+      Only progress to more explosive jumps once you have mastered your landing mechanics.</li>
+    </ul>
+    `,
+  },
+  {
+    category: ["butt", "thighs"],
+    name: "Step-up",
+    img: "assets/images/step-up.png",
+    description: `
+    <ul role="alert">
+      <li><span class="bold">Step 1</span> Starting Position: Stand with your feet parallel about hip width apart while holding dumbbells in your hands with palms facing inwards. 
+      Depress and retract your scapulae (pull shoulders down and back).
+      Attempt to avoid shrugging your shoulder upwards.</li>
+      <li><span class="bold">Step 2</span> pward Phase: Slowly step to place your right foot on a platform, placing your foot firmly on the deck while keeping your torso upright and aligning your knee over your second toe. 
+      Push off with the trailing (left) leg to raise your body onto the platform placing that foot alongside your leading (right) foot. 
+      During this transition, your torso and your right tibia (shinbone) will move slightly forward past vertical, but try to avoid excessive forward movement.</li>
+      <li><span class="bold">Step 3</span> Downward Phase: Slowly load the weight of your body into your leading (right) foot, step backwards to place the trailing (left) foot on the floor in its starting position. 
+      Allow your body to lean slightly forward during the step-down movement. Load your weight into your trailing (left) foot and step off the platform with your leading (right) foot, returning to your starting position. 
+      Repeat for the opposite side.</li>
+      <li><span class="bold">Step 4</span> An exercise progression is to step-up onto one leg only and remain standing on a single-leg before stepping back down.
+      Single-leg stepping is a functional movement we perform daily. 
+      Always monitor your foot, ankle and knee position. 
+      Avoid movement of your foot and ankle (collapsing in or out), and always attempt to keep your knee aligned over your second toe.</li>
+    </ul>
+    `,
+  },
+  {
+    category: ["legs"],
+    name: "Running",
+    img: "assets/images/running.png",
+    description: `
+    <ul role="alert">
+      <li><span class="bold">Step 1:</span> Stand straight with your feet shoulder width apart and face forward, opening up your chest.</li>
+      <li><span class="bold">Step 2:</span> Start pulling your knees up, and slowly land on the balls of your feet.</li>
+      <li><span class="bold">Step 3:</span> Repeat until set is complete.</li>
+    </ul>
+    `,
+  },
+  {
+    category: ["abs", "butt", "thighs"],
+    name: "Lunge",
+    img: "assets/images/lunge.png",
+    description: `
+    <ul role="alert">
+      <li><span class="bold">Step 1</span> Starting Position: Stand with your feet together. Depress and retract your scapulae (pull your shoulders down and back) without arching your low back, and "brace" (engage your abdominal/core muscles) to stiffen your spine.</li>
+      <li><span class="bold">Step 2</span> In preparation to step forward, slowly lift one foot off the floor, stabilizing your body on the stance (supporting) leg. 
+      Avoid any sideways tilting or swaying in your upper body and try not to move the stance (supporting) foot. 
+      Hold this position momentarily before stepping forward. 
+      The raised (swing) leg should initiate contact with a heel strike first, slowly transferring your body weight into the leading (forward) foot placed firmly on the floor. 
+      As you load into this leg, avoid any sideways tilting or swaying in your upper body and try not to move the stance (supporting) foot.</li>
+      <li><span class="bold">Step 3</span> As you lunge forward, focus more on dropping your hips towards the floor rather than driving your hips forward. 
+      This will help control the amount of forward movement of your shinbone (forward tibial translation) over your foot. 
+      Continue lowering your body to a comfortable position or until your front thigh becomes parallel with the floor and your tibia (shinbone) is in a slight forward lean.
+      While lunging, simultaneously, bend forward at your hips, maintaining a flat back.</li>
+      <li><span class="bold">Step 4</span> Firmly push off with your front leg, activating both your quads and glutes (thighs and butt muscles) to return to your upright, starting position.
+      We suggest you first learn how to perform single leg-stands on the ground before performing this forward lunge. 
+      Once you master the forward lunge, you can progress to doing a lunge using arm drivers and mult-directional glute activation lunges.</li>
+    </ul>
+    `,
+  },
+  {
+    category: ["butt", "thighs"],
+    name: "Jumping Jacks",
+    img: "assets/images/jumping-jack.png",
+    description: `
+    <ul role="alert">
+      <li><span class="bold">Step 1:</span> Start with your arms hanging naturally by your side, and your feet close.</li>
+      <li><span class="bold">Step 2:</span> When jumping, you should land with your arms raised and feets wide apart.</li>
+      <li><span class="bold">Step 3:</span> Alternate between having your arms raised, feet apart, and arms down, feet close.</li>
+    </ul>
+    `,
+  },
+  {
+    category: ["quads", "glutes", "calves"],
+    name: "Wall-sit",
+    img: "assets/images/wall-sit.png",
+    description: ` 
+    <ul role="alert">
+      <li><span class="bold">Step 1:</span> Start with your back against a wall with your feet shoulder width and about 2 feet from the wall.</li>
+      <li><span class="bold">Step 2:</span> Engage your abdominal muscles and slowly slide your back down the wall until your thighs are parallel to the ground. </li>
+      <li><span class="bold">Step 3:</span> Adjust your feet so your knees are directly above your ankles (rather than over your toes).</li>
+      <li><span class="bold">Step 4:</span> Keep your back flat against the wall.</li>
+      <li><span class="bold">Step 5:</span> Hold the position for 20 to 60 seconds.</li>
+      <li><span class="bold">Step 6:</span> Slide slowly back up the wall to a standing position.</li>
+      <li><span class="bold">Step 7:</span> Rest 30 seconds and repeat the exercise three times. Increase your hold time by five seconds as you increase your strength.</li>
+    </ul>`,
+  },
 ];
 
 function renderCurrentExercise(exercise) {
@@ -453,10 +453,6 @@ function startTimer(seconds, container, oncomplete) {
     ms = seconds * 1000;
   };
 
-  obj.reset = function () {
-    ms = seconds * 1000;
-  };
-
   obj.step = function () {
     var now = Math.max(0, ms - (new Date().getTime() - startTime)),
       m = Math.floor(now / 60000),
@@ -485,6 +481,27 @@ const countdownEl = document.getElementById("countdown");
 let exerciseTimer;
 let exercisePaused = false;
 
+let test = document.querySelectorAll(
+  "fieldset:nth-child(1) input[type=checkbox]"
+);
+
+var filter;
+var result = [];
+
+function checkBox() {
+  for (let i = 0; i < test.length; i++) {
+    if (test[i].checked == true) {
+      result.push(test[i].value.toLowerCase());
+      var unique = [...new Set(result)];
+    }
+  }
+
+  filter = unique.toString();
+  //filter = "arms";
+  //console.log(filter);
+  workout();
+}
+
 function workout() {
   // Hele workout
   //Kjør en excercise
@@ -493,17 +510,12 @@ function workout() {
   //Repeat
 
   let exercises = exerciseDetails;
+  console.log(filter);
 
   // Filtrering
   exercises = exercises.filter((exercise) => {
-    // console.log(exercise.category);
-    console.log(exercise.category[0]);
-    exercise.forEach((e) => console.log(e));
-
-    console.log(category);
-
-    // return ["chest"].includes(exercise.category[1]);
-    // return ["Crunch"].includes(exercise.name);
+    return filter.includes(exercise.category);
+    // return ["Wall-sit"].includes(exercise.name);
   });
 
   let currentIndex = exercises.length - 1;
