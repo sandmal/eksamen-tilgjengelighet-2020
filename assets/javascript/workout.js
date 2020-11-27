@@ -188,6 +188,7 @@ function hideButtonWork() {
 const exerciseDetails = [
   {
     category: ["arms", "chest", "shoulders"],
+    type: ["space"],
     name: "Push-ups",
     img: "assets/images/push-up.png",
     description: `
@@ -214,6 +215,7 @@ const exerciseDetails = [
   },
   {
     category: ["arms", "chest", "abs", "shoulders"],
+    type: ["space"],
     name: "Push-up-rotate",
     img: "assets/images/push-up-rotate.png",
     description: `
@@ -232,6 +234,7 @@ const exerciseDetails = [
   },
   {
     category: ["abs", "butt", "shoulders"],
+    type: ["space"],
     name: "Side-plank",
     img: "assets/images/side-plank.png",
     description: `
@@ -248,6 +251,7 @@ const exerciseDetails = [
   },
   {
     category: ["abs", "butt"],
+    type: ['space'],
     name: "Plank",
     img: "assets/images/plank.png",
     description: `
@@ -260,6 +264,7 @@ const exerciseDetails = [
   },
   {
     category: ["triceps"],
+    type: ["chair"],
     name: "Triceps-dip",
     img: "assets/images/triceps-dip.png",
     description: `
@@ -278,6 +283,7 @@ const exerciseDetails = [
   },
   {
     category: ["abs"],
+    type: ["space"],
     name: "Crunch",
     img: "assets/images/crunch.png",
     description: `
@@ -300,6 +306,7 @@ const exerciseDetails = [
 
   {
     category: ["butt", "thighs"],
+    type: ["space"],
     name: "Squat",
     img: "assets/images/squat.png",
     description: `
@@ -323,6 +330,7 @@ const exerciseDetails = [
   },
   {
     category: ["butt", "thighs"],
+    type: ["chair", "space"],
     name: "Step-up",
     img: "assets/images/step-up.png",
     description: `
@@ -345,6 +353,7 @@ const exerciseDetails = [
   },
   {
     category: ["legs"],
+    type: ["space", "running"],
     name: "Running",
     img: "assets/images/running.png",
     description: `
@@ -357,6 +366,7 @@ const exerciseDetails = [
   },
   {
     category: ["thighs", "abs", "butt"],
+    type: ["space"],
     name: "Lunge",
     img: "assets/images/lunge.png",
     description: `
@@ -379,7 +389,7 @@ const exerciseDetails = [
   },
   {
     category: ["butt", "thighs"],
-    type: ["running"],
+    type: ["jumping"],
     name: "Jumping Jacks",
     img: "assets/images/jumping-jack.png",
     description: `
@@ -392,6 +402,7 @@ const exerciseDetails = [
   },
   {
     category: ["quads", "glutes", "calves"],
+    type: ["wall"],
     name: "Wall-sit",
     img: "assets/images/wall-sit.png",
     description: ` 
@@ -461,7 +472,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () {};
+      obj.resume = function () { };
       if (oncomplete) oncomplete();
     }
     return now;
@@ -561,7 +572,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () {};
+        exerciseTimer.resume = function () { };
         excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {
