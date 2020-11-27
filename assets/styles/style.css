@@ -204,6 +204,12 @@ legend {
   margin: 0 auto;
 }
 
+.alert {
+  text-align: center;
+  font-size: 3em;
+  color: black;
+}
+
 li {
   list-style-type: none;
   font-size: 1.5em;
@@ -312,5 +318,6 @@ input[type="submit"] {
 
   .workoutButton {
     padding: 15px 31px;
+    height: 5em;
   }
 }
