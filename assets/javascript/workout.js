@@ -118,7 +118,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () { };
+      obj.resume = function () {};
       if (oncomplete) oncomplete();
     }
     return now;
@@ -147,52 +147,48 @@ let fieldSetTwo = document.querySelectorAll(
 );
 
 var filter;
+var resultOne = [];
+var resultTwo = [];
 var result = [];
-var result1 = [];
+
 function checkBox() {
   for (let i = 0; i < fieldSetOne.length; i++) {
     if (fieldSetOne[i].checked == true) {
-      result.push(fieldSetOne[i].value.toLowerCase());
-      var unique = [...new Set(result)];
-      //console.log(unique);
+      resultOne.push(fieldSetOne[i].value.toLowerCase());
+      var uniqueOne = [...new Set(resultOne)];
     }
   }
 
-  if (result && result.length) {
-    console.log("Field1 not empty");
-    var field1 = true;
+  if (resultOne && resultOne.length) {
+    // console.log("no elements in result");
+    var one = uniqueOne.toString();
+    result.push(one);
+    var fieldOne = true;
   }
 
   for (let i = 0; i < fieldSetTwo.length; i++) {
     if (fieldSetTwo[i].checked == true) {
-      result1.push(fieldSetTwo[i].value.toLowerCase());
-      var unique = [...new Set(result1)];
-      //console.log(unique);
+      resultTwo.push(fieldSetTwo[i].value.toLowerCase());
+      var uniqueTwo = [...new Set(resultTwo)];
     }
   }
 
-  if (result1 && result1.length) {
-    console.log("Field2 not empty");
-    var field2 = true;
-
-    for (let i = 0; i < fieldSetOne.length; i++) {
-      if (fieldSetOne[i].checked == true) {
-        result1.push(fieldSetOne[i].value.toLowerCase());
-        var unique = [...new Set(result1)];
-        //console.log(unique);
-      }
-    }
+  if (resultTwo && resultTwo.length) {
+    var two = uniqueTwo.toString();
+    result.push(two);
+    var fieldTwo = true;
   }
 
-  if (field1 == true && field2 == true) {
-    console.log(unique);
-    filter = unique;
-    //console.log(filter);
-    //console.log(filter.indexOf("legs"));
+  if (fieldOne == true && fieldTwo == true) {
+    filter = result;
+    // console.log(filter);
     workout();
   } else {
-    let div = document.getElementById('active-workout');
-    div.insertAdjacentHTML('afterbegin', `<p role="alert" class="alert">You didn't choose a single exercise or a body part, click reset to try again!</p>`);
+    let div = document.getElementById("active-workout");
+    div.insertAdjacentHTML(
+      "afterbegin",
+      `<p role="alert" class="alert">You didn't choose a single exercise or a body part, click reset to try again!</p>`
+    );
   }
 }
 // console.log(filter);
@@ -204,25 +200,18 @@ function workout() {
   //Repeat
 
   let exercises = exerciseDetails;
-  var cat;
-  var typ;
-  // Filtrering
   exercises = exercises.filter((exercise) => {
-    for (let i in exercise.category) {
-      cat = filter.includes(exercise.category[i]);
-      if (cat) {
-        console.log(cat);
-        return cat;
-      }
-    }
-    for (let i in exercise.name) {
-      typ = filter.includes(exercise.name[i]);
-      if (typ) {
-        console.log(typ);
-        return typ;
-      }
-    }
+    const isCorrectName = filter[1]
+      .split(",")
+      .find((name) => name === exercise.name.toLowerCase());
+
+    const isCorrectCategory = filter[0]
+      .split(",")
+      .find((body) => exercise.category.includes(body));
+
+    return isCorrectCategory && isCorrectName;
   });
+  // console.log(exercises);
 
   let currentIndex = exercises.length - 1;
   var excerciseProgress = 0;
@@ -244,7 +233,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () { };
+        exerciseTimer.resume = function () {};
         excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {

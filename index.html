@@ -1,196 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout"
+    />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <script src="assets/javascript/workout.js" defer></script>
+    <script src="assets/javascript/form.js"></script>
+    <script src="assets/javascript/details.js"></script>
+    <title>Workout schedule</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout" />
-  <link rel="stylesheet" href="assets/styles/style.css" />
-  <script src="assets/javascript/workout.js" defer></script>
-  <script src="assets/javascript/form.js"></script>
-  <script src="assets/javascript/details.js"></script>
-  <title>Workout schedule</title>
-</head>
+  <body>
+    <header>
+      <h1>7 - minute</h1>
+      <h2>workout</h2>
+      <p>* Rest for 5 seconds between each excercise</p>
+    </header>
+    <div id="workout">
+      <button>Choose your workout</button>
 
-<body>
-  <header>
-    <h1>7 - minute</h1>
-    <h2>workout</h2>
-    <p>* Rest for 5 seconds between each excercise</p>
-  </header>
-  <div id="workout">
-    <button>Choose your workout</button>
+      <div id="selectWorkoutModal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>Choose workout</h3>
 
-    <div id="selectWorkoutModal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Choose workout</h3>
+          <form>
+            <fieldset>
+              <legend>Exclude bodyparts</legend>
 
-        <form>
-          <fieldset>
-            <legend>Exclude bodyparts</legend>
+              <label for="arms-checkbox">Arms</label>
+              <input
+                type="checkbox"
+                value="Arms"
+                id="arms-checkbox"
+                name="arms"
+                checked
+              />
+              <button id="arms" class="workoutButton" onclick="armsClick()">
+                &#9745; Arms
+              </button>
 
-            <label for="arms-checkbox">Arms</label>
-            <input type="checkbox" value="Arms" id="arms-checkbox" name="arms" checked />
-            <button id="arms" class="workoutButton" onclick="armsClick()">
-              &#9745; Arms
-            </button>
+              <label for="legs-checkbox">Legs</label>
+              <input
+                type="checkbox"
+                value="Legs"
+                id="legs-checkbox"
+                name="legs"
+                checked
+              />
+              <button id="legs" class="workoutButton" onclick="legsClick()">
+                &#9745; Legs
+              </button>
 
-            <label for="legs-checkbox">Legs</label>
-            <input type="checkbox" value="Legs" id="legs-checkbox" name="legs" checked />
-            <button id="legs" class="workoutButton" onclick="legsClick()">
-              &#9745; Legs
-            </button>
+              <label for="chest-checkbox">Chest</label>
+              <input
+                type="checkbox"
+                value="Chest"
+                id="chest-checkbox"
+                name="chest"
+                checked
+              />
+              <button id="chest" class="workoutButton" onclick="chestClick()">
+                &#9745; Chest
+              </button>
 
-            <label for="chest-checkbox">Chest</label>
-            <input type="checkbox" value="Chest" id="chest-checkbox" name="chest" checked />
-            <button id="chest" class="workoutButton" onclick="chestClick()">
-              &#9745; Chest
-            </button>
+              <label for="shoulders-checkbox">Shoulders</label>
+              <input
+                type="checkbox"
+                value="Shoulders"
+                id="shoulders-checkbox"
+                name="shoulders"
+                checked
+              />
+              <button
+                id="shoulders"
+                class="workoutButton"
+                onclick="shoulderClick()"
+              >
+                &#9745; Shoulders
+              </button>
 
-            <label for="shoulders-checkbox">Shoulders</label>
-            <input type="checkbox" value="Shoulders" id="shoulders-checkbox" name="shoulders" checked />
-            <button id="shoulders" class="workoutButton" onclick="shoulderClick()">
-              &#9745; Shoulders
-            </button>
+              <label for="abs-checkbox">Abs</label>
+              <input
+                type="checkbox"
+                value="Abs"
+                id="abs-checkbox"
+                name="abs"
+                checked
+              />
+              <button id="abs" class="workoutButton" onclick="absClick()">
+                &#9745; Abs
+              </button>
 
-            <label for="abs-checkbox">Abs</label>
-            <input type="checkbox" value="Abs" id="abs-checkbox" name="abs" checked />
-            <button id="abs" class="workoutButton" onclick="absClick()">
-              &#9745; Abs
-            </button>
+              <label for="butt-checkbox">Butt/Hips</label>
+              <input
+                type="checkbox"
+                value="Butt"
+                id="butt-checkbox"
+                name="butt"
+                checked
+              />
+              <button id="butt" class="workoutButton" onclick="buttClick()">
+                &#9745; Butt/Hip
+              </button>
 
-            <label for="butt-checkbox">Butt/Hips</label>
-            <input type="checkbox" value="Butt" id="butt-checkbox" name="butt" checked />
-            <button id="butt" class="workoutButton" onclick="buttClick()">
-              &#9745; Butt/Hip
-            </button>
+              <label for="thighs-checkbox">Legs-Thigs</label>
+              <input
+                type="checkbox"
+                value="Thighs"
+                id="thighs-checkbox"
+                name="thighs"
+                checked
+              />
+              <button id="thighs" class="workoutButton" onclick="thighsClick()">
+                &#9745; Legs-Thighs
+              </button>
 
-            <label for="thighs-checkbox">Legs-Thigs</label>
-            <input type="checkbox" value="Thighs" id="thighs-checkbox" name="thighs" checked />
-            <button id="thighs" class="workoutButton" onclick="thighsClick()">
-              &#9745; Legs-Thighs
-            </button>
+              <label for="quads-checkbox">Quadriceps</label>
+              <input
+                type="checkbox"
+                value="Quads"
+                id="quads-checkbox"
+                name="quads"
+                checked
+              />
+              <button id="quads" class="workoutButton" onclick="quadsClick()">
+                &#9745; Quadriceps
+              </button>
 
-            <label for="quads-checkbox">Quadriceps</label>
-            <input type="checkbox" value="Quads" id="quads-checkbox" name="quads" checked />
-            <button id="quads" class="workoutButton" onclick="quadsClick()">
-              &#9745; Quadriceps
-            </button>
+              <label for="glutes-checkbox">Glutes</label>
+              <input
+                type="checkbox"
+                value="Glutes"
+                id="glutes-checkbox"
+                name="glutes"
+                checked
+              />
+              <button id="glutes" class="workoutButton" onclick="glutesClick()">
+                &#9745; Glutes
+              </button>
 
-            <label for="glutes-checkbox">Glutes</label>
-            <input type="checkbox" value="Glutes" id="glutes-checkbox" name="glutes" checked />
-            <button id="glutes" class="workoutButton" onclick="glutesClick()">
-              &#9745; Glutes
-            </button>
+              <label for="calves-checkbox">Calves</label>
+              <input
+                type="checkbox"
+                value="Calves"
+                id="calves-checkbox"
+                name="calves"
+                checked
+              />
 
-            <label for="calves-checkbox">Calves</label>
-            <input type="checkbox" value="Calves" id="calves-checkbox" name="calves" checked />
+              <button id="calves" class="workoutButton" onclick="calvesClick()">
+                &#9745; Calves
+              </button>
 
-            <button id="calves" class="workoutButton" onclick="calvesClick()">
-              &#9745; Calves
-            </button>
+              <label for="triceps-checkbox">Triceps</label>
+              <input
+                type="checkbox"
+                value="Triceps"
+                id="triceps-checkbox"
+                name="triceps"
+                checked
+              />
+              <button
+                id="triceps"
+                class="workoutButton"
+                onclick="tricepsClick()"
+              >
+                &#9745; Triceps
+              </button>
+            </fieldset>
 
-            <label for="triceps-checkbox">Triceps</label>
-            <input type="checkbox" value="Triceps" id="triceps-checkbox" name="triceps" checked />
-            <button id="triceps" class="workoutButton" onclick="tricepsClick()">
-              &#9745; Triceps
-            </button>
-          </fieldset>
+            <fieldset>
+              <legend>Exclude exercises</legend>
 
-          <fieldset>
-            <legend>Exclude exercises</legend>
+              <label for="pushup">Pushup</label>
+              <input
+                type="checkbox"
+                value="push-ups"
+                id="pushup"
+                name="pushup"
+                checked
+              />
+              <button
+                id="pushupBtn"
+                class="workoutButton"
+                onclick="pushupClick()"
+              >
+                &#9745; Pushup
+              </button>
 
-            <label for="pushup">Pushup</label>
-            <input type="checkbox" value="push-ups" id="pushup" name="pushup" checked />
-            <button id="pushupBtn" class="workoutButton" onclick="pushupClick()">
-              &#9745; Pushup
-            </button>
+              <label for="pushupR">Pushup Rotate</label>
+              <input
+                type="checkbox"
+                value="push-up-rotate"
+                id="pushupR"
+                name="pushupR"
+                checked
+              />
+              <button
+                id="pushupRBtn"
+                class="workoutButton"
+                onclick="pushupRClick()"
+              >
+                &#9745; Pushup Rotate
+              </button>
 
-            <label for="pushupR">Pushup Rotate</label>
-            <input type="checkbox" value="push-up-rotate" id="pushupR" name="pushupR" checked/>
-            <button id="pushupRBtn" class="workoutButton" onclick="pushupRClick()">
-              &#9745; Pushup Rotate
-            </button>
+              <label for="sidePlank">Side Plank</label>
+              <input
+                type="checkbox"
+                value="side-plank"
+                id="sidePlank"
+                name="sidePlank"
+                checked
+              />
+              <button
+                id="sidePlankBtn"
+                class="workoutButton"
+                onclick="sidePlankClick()"
+              >
+                &#9745; Side Plank
+              </button>
 
-            <label for="sidePlank">Side Plank</label>
-            <input type="checkbox" value="side-plank" id="sidePlank" name="sidePlank" checked/>
-            <button id="sidePlankBtn" class="workoutButton" onclick="sidePlankClick()">
-              &#9745; Side Plank
-            </button>
+              <label for="plank">Plank</label>
+              <input
+                type="checkbox"
+                value="plank"
+                id="plank"
+                name="plank"
+                checked
+              />
+              <button
+                id="plankBtn"
+                class="workoutButton"
+                onclick="plankClick()"
+              >
+                &#9745; Plank
+              </button>
 
-            <label for="plank">Plank</label>
-            <input type="checkbox" value="plank" id="plank" name="plank" checked/>
-            <button id="plankBtn" class="workoutButton" onclick="plankClick()">
-              &#9745; Plank
-            </button>
+              <label for="crunch">Crunch</label>
+              <input
+                type="checkbox"
+                value="crunch"
+                id="crunch"
+                name="crunch"
+                checked
+              />
+              <button
+                id="crunchBtn"
+                class="workoutButton"
+                onclick="crunchClick()"
+              >
+                &#9745; Crunch
+              </button>
 
-            <label for="crunch">Crunch</label>
-            <input type="checkbox" value="crunch" id="crunch" name="crunch" checked/>
-            <button id="crunchBtn" class="workoutButton" onclick="crunchClick()">
-              &#9745; Crunch
-            </button>
+              <label for="squat">Squat</label>
+              <input
+                type="checkbox"
+                value="squat"
+                id="squat"
+                name="squat"
+                checked
+              />
+              <button
+                id="squatBtn"
+                class="workoutButton"
+                onclick="squatClick()"
+              >
+                &#9745; Squat
+              </button>
 
-            <label for="squat">Squat</label>
-            <input type="checkbox" value="squat" id="squat" name="squat" checked/>
-            <button id="squatBtn" class="workoutButton" onclick="squatClick()">
-              &#9745; Squat
-            </button>
+              <label for="step-up">Step-up</label>
+              <input
+                type="checkbox"
+                value="step-up"
+                id="step-up"
+                name="step-up"
+                checked
+              />
+              <button id="stepBtn" class="workoutButton" onclick="stepClick()">
+                &#9745; Step-up
+              </button>
 
-            <label for="step-up">Step-up</label>
-            <input type="checkbox" value="step-up" id="step-up" name="step-up" checked/>
-            <button id="stepBtn" class="workoutButton" onclick="stepClick()">
-              &#9745; Step-up
-            </button>
+              <label for="running">Running</label>
+              <input
+                type="checkbox"
+                value="running"
+                id="running"
+                name="running"
+                checked
+              />
+              <button
+                id="runningBtn"
+                class="workoutButton"
+                onclick="runningClick()"
+              >
+                &#9745; Running
+              </button>
 
-            <label for="running">Running</label>
-            <input type="checkbox" value="running" id="running" name="running" checked/>
-            <button id="runningBtn" class="workoutButton" onclick="runningClick()">
-              &#9745; Running
-            </button>
+              <label for="lunge">Lunge</label>
+              <input
+                type="checkbox"
+                value="lunge"
+                id="lunge"
+                name="lunge"
+                checked
+              />
+              <button
+                id="lungeBtn"
+                class="workoutButton"
+                onclick="lungeClick()"
+              >
+                &#9745; Lunges
+              </button>
 
-            <label for="lunge">Lunge</label>
-            <input type="checkbox" value="lunge" id="lunge" name="lunge" checked/>
-            <button id="lungeBtn" class="workoutButton" onclick="lungeClick()">
-              &#9745; Lunges
-            </button>
+              <label for="jacks">Jumping Jacks</label>
+              <input
+                type="checkbox"
+                value="jumping jacks"
+                id="jacks"
+                name="jacks"
+                checked
+              />
+              <button
+                id="jacksBtn"
+                class="workoutButton"
+                onclick="jacksClick()"
+              >
+                &#9745; Jumping Jacks
+              </button>
 
-            <label for="jacks">Jumping Jacks</label>
-            <input type="checkbox" value="jumping jacks" id="jacks" name="jacks" checked/>
-            <button id="jacksBtn" class="workoutButton" onclick="jacksClick()">
-              &#9745; Jumping Jacks
-            </button>
+              <label for="sit">Wall-sit</label>
+              <input
+                type="checkbox"
+                value="wall-sit"
+                id="sit"
+                name="sit"
+                checked
+              />
+              <button id="sitBtn" class="workoutButton" onclick="sitClick()">
+                &#9745; Wall-sit
+              </button>
 
-            <label for="sit">Wall-sit</label>
-            <input type="checkbox" value="wall-sit" id="sit" name="sit" checked/>
-            <button id="sitBtn" class="workoutButton" onclick="sitClick()">
-              &#9745; Wall-sit
-            </button>
-
-            <label for="tricepsdip">Triceps Dip</label>
-            <input type="checkbox" value="triceps-dip" id="tricepsdip" name="tricepsdip" checked/>
-            <button id="tricepsdipBtn" class="workoutButton" onclick="tricepsDipClick()">
-              &#9745; Triceps Dip
-            </button>
-          </fieldset>
-        </form>
-        <button class="closeBtn button" onclick="">Close</button>
+              <label for="tricepsdip">Triceps Dip</label>
+              <input
+                type="checkbox"
+                value="triceps-dip"
+                id="tricepsdip"
+                name="tricepsdip"
+                checked
+              />
+              <button
+                id="tricepsdipBtn"
+                class="workoutButton"
+                onclick="tricepsDipClick()"
+              >
+                &#9745; Triceps Dip
+              </button>
+            </fieldset>
+          </form>
+          <button class="closeBtn button" onclick="">Close</button>
+        </div>
       </div>
-    </div>
 
-    <div id="progressBar">
-      <div id="myBar"></div>
-    </div>
-    <div id="timer"></div>
-    <div>
-      <p id="countdown"></p>
-      <button id="startResume" onclick="someFunc()">Start</button>
-      <button id="reset" onclick="reset()">Reset</button>
-    </div>
+      <div id="progressBar">
+        <div id="myBar"></div>
+      </div>
+      <div id="timer"></div>
+      <div>
+        <p id="countdown"></p>
+        <button id="startResume" onclick="someFunc()">Start</button>
+        <button id="reset" onclick="reset()">Reset</button>
+      </div>
 
-    <div id="active-workout"></div>
-  </div>
-</body>
-
+      <div id="active-workout"></div>
+    </div>
+  </body>
 </html>
