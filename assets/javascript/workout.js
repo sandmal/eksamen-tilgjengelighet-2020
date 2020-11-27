@@ -141,34 +141,82 @@ function tricepsClick() {
 }
 // End functions for body parts
 
+function pushupClick() {
+  document.getElementById("pushup").checked = !document.getElementById(
+    "pushup"
+  ).checked;
+  document
+    .getElementById("pushupBtn")
+    .classList.toggle("workoutButtonToggled");
+}
+
+function pushupRClick() {
+  document.getElementById("pushupR").checked = !document.getElementById(
+    "pushupR"
+  ).checked;
+  document
+    .getElementById("pushupRBtn")
+    .classList.toggle("workoutButtonToggled");
+}
+
+function sidePlankClick() {
+  document.getElementById("sidePlank").checked = !document.getElementById("sidePlank")
+    .checked;
+  document.getElementById("sidePlankBtn").classList.toggle("workoutButtonToggled");
+}
+
+function plankClick() {
+  document.getElementById("plank").checked = !document.getElementById("plank")
+    .checked;
+  document.getElementById("plankBtn").classList.toggle("workoutButtonToggled");
+}
+
+function crunchClick() {
+  document.getElementById("crunch").checked = !document.getElementById("crunch")
+    .checked;
+  document.getElementById("crunchBtn").classList.toggle("workoutButtonToggled");
+}
+
+function squatClick() {
+  document.getElementById("squat").checked = !document.getElementById("squat")
+    .checked;
+  document.getElementById("squatBtn").classList.toggle("workoutButtonToggled");
+}
+
+function stepClick() {
+  document.getElementById("step-up").checked = !document.getElementById("step-up")
+    .checked;
+  document.getElementById("stepBtn").classList.toggle("workoutButtonToggled");
+}
+
 function runningClick() {
-  document.getElementById("running").checked = !document.getElementById(
-    "running"
-  ).checked;
-  document
-    .getElementById("runningBtn")
-    .classList.toggle("workoutButtonToggled");
-}
-
-function jumpingClick() {
-  document.getElementById("jumping").checked = !document.getElementById(
-    "jumping"
-  ).checked;
-  document
-    .getElementById("jumpingBtn")
-    .classList.toggle("workoutButtonToggled");
-}
-
-function chairClick() {
-  document.getElementById("chair").checked = !document.getElementById("chair")
+  document.getElementById("running").checked = !document.getElementById("running")
     .checked;
-  document.getElementById("chairBtn").classList.toggle("workoutButtonToggled");
+  document.getElementById("runningBtn").classList.toggle("workoutButtonToggled");
 }
 
-function spaceClick() {
-  document.getElementById("space").checked = !document.getElementById("space")
+function lungeClick() {
+  document.getElementById("lunge").checked = !document.getElementById("lunge")
     .checked;
-  document.getElementById("spaceBtn").classList.toggle("workoutButtonToggled");
+  document.getElementById("lungeBtn").classList.toggle("workoutButtonToggled");
+}
+
+function jacksClick() {
+  document.getElementById("jacks").checked = !document.getElementById("jacks")
+    .checked;
+  document.getElementById("jacksBtn").classList.toggle("workoutButtonToggled");
+}
+
+function sitClick() {
+  document.getElementById("sit").checked = !document.getElementById("sit")
+    .checked;
+  document.getElementById("sitBtn").classList.toggle("workoutButtonToggled");
+}
+
+function tricepsClick() {
+  document.getElementById("triceps").checked = !document.getElementById("triceps")
+    .checked;
+  document.getElementById("tricepsBtn").classList.toggle("workoutButtonToggled");
 }
 
 function someFunc() {
