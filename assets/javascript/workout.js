@@ -251,7 +251,7 @@ const exerciseDetails = [
   },
   {
     category: ["abs", "butt"],
-    type: ['space'],
+    type: ["space"],
     name: "Plank",
     img: "assets/images/plank.png",
     description: `
@@ -420,7 +420,7 @@ const exerciseDetails = [
 
 function renderCurrentExercise(exercise) {
   document.getElementById("active-workout").innerHTML = `
-    <p>${exercise.category} ${exercise.type}</p>
+    <p>${exercise.category} ||  ${exercise.type}</p>
       <figure data-class="${exercise.category}" data-name="${exercise.name}">
         <img src="${exercise.img}" alt="${exercise.name} Exercise" />
         <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
@@ -472,7 +472,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () { };
+      obj.resume = function () {};
       if (oncomplete) oncomplete();
     }
     return now;
@@ -502,7 +502,7 @@ let fieldSetTwo = document.querySelectorAll(
 
 var filter;
 var result = [];
-
+var remove = ["legs"];
 function checkBox() {
   for (let i = 0; i < fieldSetOne.length; i++) {
     if (fieldSetOne[i].checked == true) {
@@ -519,7 +519,8 @@ function checkBox() {
   }
 
   filter = unique;
-
+  console.log(filter);
+  console.log(filter.indexOf("legs"));
   workout();
 }
 // console.log(filter);
@@ -542,9 +543,8 @@ function workout() {
         return cat;
       }
     }
-
-    for (let i in exercise.type) {
-      typ = filter.includes(exercise.type[i]);
+    for (let i in exercise.name) {
+      typ = filter.includes(exercise.name[i]);
       if (typ) {
         console.log(typ);
         return typ;
@@ -572,7 +572,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () { };
+        exerciseTimer.resume = function () {};
         excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {
