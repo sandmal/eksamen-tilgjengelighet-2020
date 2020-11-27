@@ -71,6 +71,9 @@ function renderCurrentExercise(exercise) {
         <img src="${exercise.img}" alt="${exercise.name} Exercise" />
         <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
       </figure>
+      <audio controls autoplay>
+        <source src="assets/sounds/${exercise.name}.mp3">
+        </audio>
       <p>${exercise.description}</p>
     `;
 }
@@ -79,6 +82,9 @@ function renderRestAnimation() {
   document.getElementById("active-workout").innerHTML = `
       <h3>REST</h3>
       <p>Take a rest</p>
+      <audio controls autoplay>
+        <source src="assets/sounds/rest.mp3">
+      </audio>
       `;
 }
 
@@ -86,6 +92,9 @@ function renderWorkoutEnd() {
   document.getElementById("active-workout").innerHTML = `
       <h3>Workout is done</h3>
       <p>Workout complete</p>
+      <audio controls autoplay>
+        <source src="assets/sounds/completejaps.mp3">
+      </audio>
       `;
 }
 
@@ -132,7 +141,7 @@ let rest = false;
 
 var stop;
 const exerciseTime = 5;
-const restTime = 3;
+const restTime = 5;
 
 const countdownEl = document.getElementById("countdown");
 let exerciseTimer;
