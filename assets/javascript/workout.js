@@ -218,9 +218,12 @@ function sitClick() {
 }
 
 function tricepsDipClick() {
-  document.getElementById("tricepsdip").checked = !document.getElementById("tricepsdip")
-    .checked;
-  document.getElementById("tricepsdipBtn").classList.toggle("workoutButtonToggled");
+  document.getElementById("tricepsdip").checked = !document.getElementById(
+    "tricepsdip"
+  ).checked;
+  document
+    .getElementById("tricepsdipBtn")
+    .classList.toggle("workoutButtonToggled");
 }
 
 function someFunc() {
@@ -570,7 +573,6 @@ function checkBox() {
   }
   filter = unique;
   console.log(filter);
-  console.log(filter.indexOf("legs"));
   workout();
 }
 // console.log(filter);
