@@ -7,7 +7,6 @@ const close = document.getElementsByClassName("close")[0];
 const closeBtn = document.getElementsByClassName("closeBtn")[0];
 
 const form = document.querySelector("form");
-//const inputChecked = document.querySelector("input").id;
 
 btn.onclick = function () {
   modal.style.display = "block";
@@ -160,7 +159,6 @@ function checkBox() {
   }
 
   if (resultOne && resultOne.length) {
-    // console.log("no elements in result");
     var one = uniqueOne.toString();
     result.push(one);
     var fieldOne = true;
@@ -181,7 +179,6 @@ function checkBox() {
 
   if (fieldOne == true && fieldTwo == true) {
     filter = result;
-    // console.log(filter);
     workout();
   } else {
     let div = document.getElementById("active-workout");
@@ -191,7 +188,6 @@ function checkBox() {
     );
   }
 }
-// console.log(filter);
 function workout() {
   // Hele workout
   //Kjør en excercise
@@ -211,7 +207,6 @@ function workout() {
 
     return isCorrectCategory && isCorrectName;
   });
-  // console.log(exercises);
 
   let currentIndex = exercises.length - 1;
   var excerciseProgress = 0;
@@ -220,7 +215,6 @@ function workout() {
     if (excerciseProgress >= 1000) {
     } else {
       element.style.width = excerciseProgress + "%";
-      // element.innerHTML = excerciseProgress * 1 + "%";
     }
   }
 
