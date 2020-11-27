@@ -140,7 +140,7 @@ let running = false;
 let rest = false;
 
 var stop;
-const exerciseTime = 5;
+const exerciseTime = 30;
 const restTime = 5;
 
 const countdownEl = document.getElementById("countdown");
