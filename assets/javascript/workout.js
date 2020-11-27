@@ -53,17 +53,9 @@ window.addEventListener("scroll", () => {
   );
 });
 
+// DON'T DELETE THIS, IT BREAKS EVERYTHING
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  /* 
-  var armsChecked = document.getElementById("arms-checkbox").checked;
-  var legsChecked = document.getElementById("legs-checkbox").checked;
-  var chestChecked = document.getElementById("chest-checkbox").checked;
-  var backChecked = document.getElementById("shoulders-checkbox").checked;
-
-  if (inputChecked == "arms") {
-    console.log("tes");
-  } */
 });
 
 function reset() {
@@ -180,7 +172,6 @@ function spaceClick() {
 }
 
 function someFunc() {
-  // workout();
   checkBox();
   showBar();
   hideButtonWork();
@@ -458,10 +449,6 @@ function startTimer(seconds, container, oncomplete) {
   };
 
   obj.rest = function () {
-    ms = seconds * 1000;
-  };
-
-  obj.reset = function () {
     ms = seconds * 1000;
   };
 
