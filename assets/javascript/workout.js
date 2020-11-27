@@ -142,12 +142,9 @@ function tricepsClick() {
 // End functions for body parts
 
 function pushupClick() {
-  document.getElementById("pushup").checked = !document.getElementById(
-    "pushup"
-  ).checked;
-  document
-    .getElementById("pushupBtn")
-    .classList.toggle("workoutButtonToggled");
+  document.getElementById("pushup").checked = !document.getElementById("pushup")
+    .checked;
+  document.getElementById("pushupBtn").classList.toggle("workoutButtonToggled");
 }
 
 function pushupRClick() {
@@ -160,9 +157,12 @@ function pushupRClick() {
 }
 
 function sidePlankClick() {
-  document.getElementById("sidePlank").checked = !document.getElementById("sidePlank")
-    .checked;
-  document.getElementById("sidePlankBtn").classList.toggle("workoutButtonToggled");
+  document.getElementById("sidePlank").checked = !document.getElementById(
+    "sidePlank"
+  ).checked;
+  document
+    .getElementById("sidePlankBtn")
+    .classList.toggle("workoutButtonToggled");
 }
 
 function plankClick() {
@@ -184,15 +184,19 @@ function squatClick() {
 }
 
 function stepClick() {
-  document.getElementById("step-up").checked = !document.getElementById("step-up")
-    .checked;
+  document.getElementById("step-up").checked = !document.getElementById(
+    "step-up"
+  ).checked;
   document.getElementById("stepBtn").classList.toggle("workoutButtonToggled");
 }
 
 function runningClick() {
-  document.getElementById("running").checked = !document.getElementById("running")
-    .checked;
-  document.getElementById("runningBtn").classList.toggle("workoutButtonToggled");
+  document.getElementById("running").checked = !document.getElementById(
+    "running"
+  ).checked;
+  document
+    .getElementById("runningBtn")
+    .classList.toggle("workoutButtonToggled");
 }
 
 function lungeClick() {
@@ -299,7 +303,7 @@ const exerciseDetails = [
   },
   {
     category: ["abs", "butt"],
-    type: ['space'],
+    type: ["space"],
     name: "Plank",
     img: "assets/images/plank.png",
     description: `
@@ -468,7 +472,7 @@ const exerciseDetails = [
 
 function renderCurrentExercise(exercise) {
   document.getElementById("active-workout").innerHTML = `
-    <p>${exercise.category} ${exercise.type}</p>
+    <p>${exercise.category} ||  ${exercise.type}</p>
       <figure data-class="${exercise.category}" data-name="${exercise.name}">
         <img src="${exercise.img}" alt="${exercise.name} Exercise" />
         <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
@@ -520,7 +524,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () { };
+      obj.resume = function () {};
       if (oncomplete) oncomplete();
     }
     return now;
@@ -550,7 +554,6 @@ let fieldSetTwo = document.querySelectorAll(
 
 var filter;
 var result = [];
-
 function checkBox() {
   for (let i = 0; i < fieldSetOne.length; i++) {
     if (fieldSetOne[i].checked == true) {
@@ -565,9 +568,9 @@ function checkBox() {
       var unique = [...new Set(result)];
     }
   }
-
   filter = unique;
-
+  console.log(filter);
+  console.log(filter.indexOf("legs"));
   workout();
 }
 // console.log(filter);
@@ -590,9 +593,8 @@ function workout() {
         return cat;
       }
     }
-
-    for (let i in exercise.type) {
-      typ = filter.includes(exercise.type[i]);
+    for (let i in exercise.name) {
+      typ = filter.includes(exercise.name[i]);
       if (typ) {
         console.log(typ);
         return typ;
@@ -620,7 +622,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () { };
+        exerciseTimer.resume = function () {};
         excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {
