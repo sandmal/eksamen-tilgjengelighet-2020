@@ -556,24 +556,49 @@ let fieldSetTwo = document.querySelectorAll(
 );
 
 var filter;
+var resultOne = [];
+var resultTwo = [];
 var result = [];
+
 function checkBox() {
   for (let i = 0; i < fieldSetOne.length; i++) {
     if (fieldSetOne[i].checked == true) {
-      result.push(fieldSetOne[i].value.toLowerCase());
-      var unique = [...new Set(result)];
+      resultOne.push(fieldSetOne[i].value.toLowerCase());
+      var uniqueOne = [...new Set(resultOne)];
     }
+  }
+
+  if (resultOne && resultOne.length) {
+    // console.log("no elements in result");
+    var one = uniqueOne.toString();
+    result.push(one);
+    var fieldOne = true;
   }
 
   for (let i = 0; i < fieldSetTwo.length; i++) {
     if (fieldSetTwo[i].checked == true) {
-      result.push(fieldSetTwo[i].value.toLowerCase());
-      var unique = [...new Set(result)];
+      resultTwo.push(fieldSetTwo[i].value.toLowerCase());
+      var uniqueTwo = [...new Set(resultTwo)];
     }
   }
-  filter = unique;
-  console.log(filter);
-  workout();
+
+  if (resultTwo && resultTwo.length) {
+    var two = uniqueTwo.toString();
+    result.push(two);
+    var fieldTwo = true;
+  }
+
+  if (fieldOne == true && fieldTwo == true) {
+    filter = result;
+    // console.log(filter);
+    workout();
+  } else {
+    let div = document.getElementById("active-workout");
+    div.insertAdjacentHTML(
+      "afterbegin",
+      `<p role="alert" class="alert">You didn't choose a single exercise or a body part, click reset to try again!</p>`
+    );
+  }
 }
 // console.log(filter);
 function workout() {
@@ -584,25 +609,18 @@ function workout() {
   //Repeat
 
   let exercises = exerciseDetails;
-  var cat;
-  var typ;
-  // Filtrering
   exercises = exercises.filter((exercise) => {
-    for (let i in exercise.category) {
-      cat = filter.includes(exercise.category[i]);
-      if (cat) {
-        console.log(cat);
-        return cat;
-      }
-    }
-    for (let i in exercise.name) {
-      typ = filter.includes(exercise.name[i]);
-      if (typ) {
-        console.log(typ);
-        return typ;
-      }
-    }
+    const isCorrectName = filter[1]
+      .split(",")
+      .find((name) => name === exercise.name.toLowerCase());
+
+    const isCorrectCategory = filter[0]
+      .split(",")
+      .find((body) => exercise.category.includes(body));
+
+    return isCorrectCategory && isCorrectName;
   });
+  // console.log(exercises);
 
   let currentIndex = exercises.length - 1;
   var excerciseProgress = 0;
