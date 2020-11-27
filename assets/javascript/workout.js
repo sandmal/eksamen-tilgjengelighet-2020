@@ -524,7 +524,7 @@ function startTimer(seconds, container, oncomplete) {
     display.innerHTML = m + ":" + s;
     if (now == 0) {
       clearInterval(timer);
-      obj.resume = function () {};
+      obj.resume = function () { };
       if (oncomplete) oncomplete();
     }
     return now;
@@ -554,24 +554,52 @@ let fieldSetTwo = document.querySelectorAll(
 
 var filter;
 var result = [];
+var result1 = [];
 function checkBox() {
   for (let i = 0; i < fieldSetOne.length; i++) {
     if (fieldSetOne[i].checked == true) {
       result.push(fieldSetOne[i].value.toLowerCase());
       var unique = [...new Set(result)];
+      //console.log(unique);
     }
+  }
+
+  if (result && result.length) {
+    console.log("Field1 not empty");
+    var field1 = true;
   }
 
   for (let i = 0; i < fieldSetTwo.length; i++) {
     if (fieldSetTwo[i].checked == true) {
-      result.push(fieldSetTwo[i].value.toLowerCase());
-      var unique = [...new Set(result)];
+      result1.push(fieldSetTwo[i].value.toLowerCase());
+      var unique = [...new Set(result1)];
+      //console.log(unique);
     }
   }
-  filter = unique;
-  console.log(filter);
-  console.log(filter.indexOf("legs"));
-  workout();
+
+  if (result1 && result1.length) {
+    console.log("Field2 not empty");
+    var field2 = true;
+
+    for (let i = 0; i < fieldSetOne.length; i++) {
+      if (fieldSetOne[i].checked == true) {
+        result1.push(fieldSetOne[i].value.toLowerCase());
+        var unique = [...new Set(result1)];
+        //console.log(unique);
+      }
+    }
+  }
+
+  if (field1 == true && field2 == true) {
+    console.log(unique);
+    filter = unique;
+    //console.log(filter);
+    //console.log(filter.indexOf("legs"));
+    workout();
+  } else {
+    let div = document.getElementById('active-workout');
+    div.insertAdjacentHTML('afterbegin', `<p role="alert" class="alert">You didn't choose a single exercise or a body part, click reset to try again!</p>`);
+  }
 }
 // console.log(filter);
 function workout() {
@@ -622,7 +650,7 @@ function workout() {
       exerciseTimer = new startTimer(exerciseTime, "timer", () => {
         renderWorkoutEnd();
         exerciseTimer.rest();
-        exerciseTimer.resume = function () {};
+        exerciseTimer.resume = function () { };
         excerciseProgress = 100 - (currentIndex / exercises.length) * 100;
         progressBar();
         if (currentIndex > 0) {
