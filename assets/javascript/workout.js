@@ -218,12 +218,9 @@ function sitClick() {
 }
 
 function tricepsDipClick() {
-  document.getElementById("triceps").checked = !document.getElementById(
-    "triceps"
-  ).checked;
-  document
-    .getElementById("tricepsBtn")
-    .classList.toggle("workoutButtonToggled");
+  document.getElementById("tricepsdip").checked = !document.getElementById("tricepsdip")
+    .checked;
+  document.getElementById("tricepsdipBtn").classList.toggle("workoutButtonToggled");
 }
 
 function someFunc() {
