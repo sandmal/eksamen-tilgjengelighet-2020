@@ -379,6 +379,7 @@ const exerciseDetails = [
   },
   {
     category: ["butt", "thighs"],
+    type: ["running"],
     name: "Jumping Jacks",
     img: "assets/images/jumping-jack.png",
     description: `
@@ -408,7 +409,7 @@ const exerciseDetails = [
 
 function renderCurrentExercise(exercise) {
   document.getElementById("active-workout").innerHTML = `
-    <p>${exercise.category}</p>
+    <p>${exercise.category} ${exercise.type}</p>
       <figure data-class="${exercise.category}" data-name="${exercise.name}">
         <img src="${exercise.img}" alt="${exercise.name} Exercise" />
         <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
@@ -480,17 +481,28 @@ const countdownEl = document.getElementById("countdown");
 let exerciseTimer;
 let exercisePaused = false;
 
-let test = document.querySelectorAll(
+let fieldSetOne = document.querySelectorAll(
   "fieldset:nth-child(1) input[type=checkbox]"
+);
+
+let fieldSetTwo = document.querySelectorAll(
+  "fieldset:nth-child(2) input[type=checkbox]"
 );
 
 var filter;
 var result = [];
 
 function checkBox() {
-  for (let i = 0; i < test.length; i++) {
-    if (test[i].checked == true) {
-      result.push(test[i].value.toLowerCase());
+  for (let i = 0; i < fieldSetOne.length; i++) {
+    if (fieldSetOne[i].checked == true) {
+      result.push(fieldSetOne[i].value.toLowerCase());
+      var unique = [...new Set(result)];
+    }
+  }
+
+  for (let i = 0; i < fieldSetTwo.length; i++) {
+    if (fieldSetTwo[i].checked == true) {
+      result.push(fieldSetTwo[i].value.toLowerCase());
       var unique = [...new Set(result)];
     }
   }
@@ -508,14 +520,23 @@ function workout() {
   //Repeat
 
   let exercises = exerciseDetails;
-  var ex;
+  var cat;
+  var typ;
   // Filtrering
   exercises = exercises.filter((exercise) => {
     for (let i in exercise.category) {
-      ex = filter.includes(exercise.category[i]);
-      if (ex) {
-        console.log(ex);
-        return ex;
+      cat = filter.includes(exercise.category[i]);
+      if (cat) {
+        console.log(cat);
+        return cat;
+      }
+    }
+
+    for (let i in exercise.type) {
+      typ = filter.includes(exercise.type[i]);
+      if (typ) {
+        console.log(typ);
+        return typ;
       }
     }
   });
