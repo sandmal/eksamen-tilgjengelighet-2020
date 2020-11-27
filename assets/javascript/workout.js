@@ -213,7 +213,7 @@ function sitClick() {
   document.getElementById("sitBtn").classList.toggle("workoutButtonToggled");
 }
 
-function tricepsClick() {
+function tricepsDipClick() {
   document.getElementById("triceps").checked = !document.getElementById("triceps")
     .checked;
   document.getElementById("tricepsBtn").classList.toggle("workoutButtonToggled");
