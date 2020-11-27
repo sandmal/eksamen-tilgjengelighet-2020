@@ -203,7 +203,7 @@ const exerciseDetails = [
     {
         category: ["butt", "thighs"],
         type: ["jumping"],
-        name: "Jumping Jacks",
+        name: "Jumping-jacks",
         img: "assets/images/jumping-jack.png",
         description: `
     <ul role="alert">
