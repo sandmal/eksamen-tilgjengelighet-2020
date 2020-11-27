@@ -240,7 +240,7 @@ label {
 }
 
 input {
-  display: none;
+  /* display: none; */
 }
 
 input[type="submit"] {

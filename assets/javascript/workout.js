@@ -58,7 +58,7 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
 });
 
-function reset(){
+function reset() {
   location.reload();
 }
 
@@ -85,9 +85,9 @@ function chestClick() {
 }
 
 function shoulderClick() {
-  document.getElementById("shoulders-checkbox").checked = !document.getElementById(
+  document.getElementById(
     "shoulders-checkbox"
-  ).checked;
+  ).checked = !document.getElementById("shoulders-checkbox").checked;
   document.getElementById("shoulders").classList.toggle("workoutButtonToggled");
 }
 
@@ -134,9 +134,9 @@ function calvesClick() {
 }
 
 function tricepsClick() {
-  document.getElementById("triceps-checkbox").checked = !document.getElementById(
+  document.getElementById(
     "triceps-checkbox"
-  ).checked;
+  ).checked = !document.getElementById("triceps-checkbox").checked;
   document.getElementById("triceps").classList.toggle("workoutButtonToggled");
 }
 // End functions for body parts
@@ -172,7 +172,6 @@ function spaceClick() {
 }
 
 function someFunc() {
-  //workout();
   checkBox();
   showBar();
   hideButtonWork();
@@ -188,7 +187,7 @@ function hideButtonWork() {
 
 const exerciseDetails = [
   {
-    category: ["arms", "chest", "shoulders"], 
+    category: ["arms", "chest", "shoulders"],
     name: "Push-ups",
     img: "assets/images/push-up.png",
     description: `
@@ -357,7 +356,7 @@ const exerciseDetails = [
     `,
   },
   {
-    category: ["abs", "butt", "thighs"],
+    category: ["thighs", "abs", "butt"],
     name: "Lunge",
     img: "assets/images/lunge.png",
     description: `
@@ -496,12 +495,11 @@ function checkBox() {
     }
   }
 
-  filter = unique.toString();
-  //filter = "arms";
-  //console.log(filter);
+  filter = unique;
+
   workout();
 }
-
+// console.log(filter);
 function workout() {
   // Hele workout
   //Kjør en excercise
@@ -510,12 +508,16 @@ function workout() {
   //Repeat
 
   let exercises = exerciseDetails;
-  console.log(filter);
-
+  var ex;
   // Filtrering
   exercises = exercises.filter((exercise) => {
-    return filter.includes(exercise.category);
-    // return ["Wall-sit"].includes(exercise.name);
+    for (let i in exercise.category) {
+      ex = filter.includes(exercise.category[i]);
+      if (ex) {
+        console.log(ex);
+        return ex;
+      }
+    }
   });
 
   let currentIndex = exercises.length - 1;
