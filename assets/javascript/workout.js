@@ -66,7 +66,7 @@ function someFunc() {
 
 function renderCurrentExercise(exercise) {
   document.getElementById("active-workout").innerHTML = `
-      <figure data-class="${exercise.category}" data-name="${exercise.name}">
+      <figure data-class="${exercise.category}" data-name="${exercise.name}" aria-live="polite">
         <img src="${exercise.img}" alt="Person displaying the ${exercise.name} exercise" />
         <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
       </figure>
