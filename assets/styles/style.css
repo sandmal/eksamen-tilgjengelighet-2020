@@ -99,7 +99,7 @@ h2 {
 figure {
   text-align: center;
   max-width: 100%;
-  margin: 0 0 20px 0;
+  margin: 0 auto 20px auto;
 }
 
 figure img {
