@@ -79,8 +79,8 @@ function renderCurrentExercise(exercise) {
 
 function renderRestAnimation() {
   document.getElementById("active-workout").innerHTML = `
-      <h3>REST</h3>
-      <p>Rest for 5 seconds</p>
+      <h3 aria-live="polite">REST</h3>
+      <p aria-live="polite">Rest for 5 seconds</p>
       <audio controls autoplay>
         <source src="assets/sounds/rest.mp3">
       </audio>
