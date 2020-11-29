@@ -66,9 +66,8 @@ function someFunc() {
 
 function renderCurrentExercise(exercise) {
   document.getElementById("active-workout").innerHTML = `
-    <p>${exercise.category} ||  ${exercise.type}</p>
       <figure data-class="${exercise.category}" data-name="${exercise.name}">
-        <img src="${exercise.img}" alt="${exercise.name} Exercise" />
+        <img src="${exercise.img}" alt="Person displaying the ${exercise.name} Exercise" />
         <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
       </figure>
       <audio controls autoplay>
