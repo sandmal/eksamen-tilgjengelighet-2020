@@ -283,7 +283,8 @@ input[type="submit"] {
   padding: 0.3em;
 }
 
-audio {
+audio,
+.hide {
   display: none;
 }
 
