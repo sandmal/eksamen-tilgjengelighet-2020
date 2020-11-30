@@ -1,142 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout"
-    />
-    <link rel="stylesheet" href="assets/styles/style.css" />
-    <script src="assets/javascript/workout.js" defer></script>
-    <title>Workout schedule</title>
-  </head>
 
-  <body>
-    <header>
-      <h1>7 - minute</h1>
-      <h2>workout</h2>
-      <p>* Rest for 5 seconds between each excercise</p>
-    </header>
-    <div id="workout">
-      <button>Choose your workout</button>
-      <div>
-        <p id="countdown"></p>
-        <button id="startResume" onclick="workout()">Start</button>
-        <button id="reset" onclick="reset()">Reset</button>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="7 min workout schedule with 30 seconds exercises and resting for 5 seconds with various configurations of workout" />
+  <link rel="stylesheet" href="assets/styles/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/muscle.svg" />
+  <script src="assets/javascript/workout.js" defer></script>
+  <script src="assets/javascript/form.js"></script>
+  <script src="assets/javascript/details.js"></script>
+  <title>Workout schedule</title>
+</head>
 
-      <div id="progressBar">
-        <div id="myBar"></div>
-      </div>
-      <span id="timer"></span>
-      <div id="active-workout"></div>
+<body>
+  <header>
+    <h1>7 - minute</h1>
+    <h2>workout</h2>
+    <p>* Rest for 5 seconds between each excercise</p>
+  </header>
+  <main id="workout">
+    <button>Choose your workout</button>
 
-      <div id="selectWorkoutModal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h3>Choose workout</h3>
+    <div id="selectWorkoutModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Choose workout</h3>
 
-          <form method="POST">
-            <fieldset>
-              <legend>Choose workout</legend>
-              <input
-                type="checkbox"
-                value="Arms"
-                id="arms-checkbox"
-                name="arms"
-              />
-              <button id="arms" class="workoutButton" onclick="armsClick()">
-                Arms
-              </button>
+        <form>
+          <fieldset>
+            <legend>Exclude bodyparts</legend>
 
-              <input
-                type="checkbox"
-                value="Legs"
-                id="legs-checkbox"
-                name="legs"
-              />
-              <button id="legs" class="workoutButton" onclick="legsClick()">
-                Legs
-              </button>
+            <label for="arms-checkbox">Arms</label>
+            <input type="checkbox" value="Arms" id="arms-checkbox" name="arms" checked />
+            <button id="arms" class="workoutButton" onclick="armsClick()">
+              <span>&#9745;</span> Arms
+            </button>
 
-              <input
-                type="checkbox"
-                value="Chest"
-                id="chest-checkbox"
-                name="chest"
-              />
-              <button id="chest" class="workoutButton" onclick="chestClick()">
-                Chest
-              </button>
+            <label for="legs-checkbox">Legs</label>
+            <input type="checkbox" value="Legs" id="legs-checkbox" name="legs" checked />
+            <button id="legs" class="workoutButton" onclick="legsClick()">
+              <span>&#9745;</span> Legs
+            </button>
 
-              <input
-                type="checkbox"
-                value="Back"
-                id="back-checkbox"
-                name="back"
-              />
-              <button id="back" class="workoutButton" onclick="backClick()">
-                Back
-              </button>
-            </fieldset>
+            <label for="chest-checkbox">Chest</label>
+            <input type="checkbox" value="Chest" id="chest-checkbox" name="chest" checked />
+            <button id="chest" class="workoutButton" onclick="chestClick()">
+              <span>&#9745;</span> Chest
+            </button>
 
-            <fieldset>
-              <legend>Choose exercises</legend>
-              <input
-                type="checkbox"
-                value="Running"
-                id="running"
-                name="running"
-              />
-              <button
-                id="runningBtn"
-                class="workoutButton"
-                onclick="runningClick()"
-              >
-                Running
-              </button>
+            <label for="shoulders-checkbox">Shoulders</label>
+            <input type="checkbox" value="Shoulders" id="shoulders-checkbox" name="shoulders" checked />
+            <button id="shoulders" class="workoutButton" onclick="shoulderClick()">
+              <span>&#9745;</span> Shoulders
+            </button>
 
-              <input
-                type="checkbox"
-                value="Jumping"
-                id="jumping"
-                name="jumping"
-              />
-              <button
-                id="jumpingBtn"
-                class="workoutButton"
-                onclick="jumpingClick()"
-              >
-                Jumping
-              </button>
+            <label for="abs-checkbox">Abs</label>
+            <input type="checkbox" value="Abs" id="abs-checkbox" name="abs" checked />
+            <button id="abs" class="workoutButton" onclick="absClick()">
+              <span>&#9745;</span> Abs
+            </button>
 
-              <input type="checkbox" value="Chair" id="chair" name="chair" />
-              <button
-                id="chairBtn"
-                class="workoutButton"
-                onclick="chairClick()"
-              >
-                Chair
-              </button>
+            <label for="butt-checkbox">Butt/Hips</label>
+            <input type="checkbox" value="Butt" id="butt-checkbox" name="butt" checked />
+            <button id="butt" class="workoutButton" onclick="buttClick()">
+              <span>&#9745;</span> Butt/Hip
+            </button>
 
-              <input type="checkbox" value="Space" id="space" name="space" />
-              <button
-                id="spaceBtn"
-                class="workoutButton"
-                onclick="spaceClick()"
-              >
-                Space
-              </button>
-            </fieldset>
-            <input type="submit" value="Submit" />
-          </form>
-          <button class="closeBtn">Close</button>
-        </div>
+            <label for="thighs-checkbox">Legs-Thigs</label>
+            <input type="checkbox" value="Thighs" id="thighs-checkbox" name="thighs" checked />
+            <button id="thighs" class="workoutButton" onclick="thighsClick()">
+              <span>&#9745;</span> Legs-Thighs
+            </button>
+
+            <label for="quads-checkbox">Quadriceps</label>
+            <input type="checkbox" value="Quads" id="quads-checkbox" name="quads" checked />
+            <button id="quads" class="workoutButton" onclick="quadsClick()">
+              <span>&#9745;</span> Quadriceps
+            </button>
+
+            <label for="glutes-checkbox">Glutes</label>
+            <input type="checkbox" value="Glutes" id="glutes-checkbox" name="glutes" checked />
+            <button id="glutes" class="workoutButton" onclick="glutesClick()">
+              <span>&#9745;</span> Glutes
+            </button>
+
+            <label for="calves-checkbox">Calves</label>
+            <input type="checkbox" value="Calves" id="calves-checkbox" name="calves" checked />
+
+            <button id="calves" class="workoutButton" onclick="calvesClick()">
+              <span>&#9745;</span> Calves
+            </button>
+
+            <label for="triceps-checkbox">Triceps</label>
+            <input type="checkbox" value="Triceps" id="triceps-checkbox" name="triceps" checked />
+            <button id="triceps" class="workoutButton" onclick="tricepsClick()">
+              <span>&#9745;</span> Triceps
+            </button>
+          </fieldset>
+
+          <fieldset>
+            <legend>Exclude exercises</legend>
+
+            <label for="pushup">Pushup</label>
+            <input type="checkbox" value="push-ups" id="pushup" name="pushup" checked />
+            <button id="pushupBtn" class="workoutButton" onclick="pushupClick()">
+              <span>&#9745;</span> Pushup
+            </button>
+
+            <label for="pushupR">Pushup Rotate</label>
+            <input type="checkbox" value="push-up-rotate" id="pushupR" name="pushupR" checked />
+            <button id="pushupRBtn" class="workoutButton" onclick="pushupRClick()">
+              <span>&#9745;</span> Pushup Rotate
+            </button>
+
+            <label for="sidePlank">Side Plank</label>
+            <input type="checkbox" value="side-plank" id="sidePlank" name="sidePlank" checked />
+            <button id="sidePlankBtn" class="workoutButton" onclick="sidePlankClick()">
+              <span>&#9745;</span> Side Plank
+            </button>
+
+            <label for="plank">Plank</label>
+            <input type="checkbox" value="plank" id="plank" name="plank" checked />
+            <button id="plankBtn" class="workoutButton" onclick="plankClick()">
+              <span>&#9745;</span> Plank
+            </button>
+
+            <label for="crunch">Crunch</label>
+            <input type="checkbox" value="crunch" id="crunch" name="crunch" checked />
+            <button id="crunchBtn" class="workoutButton" onclick="crunchClick()">
+              <span>&#9745;</span> Crunch
+            </button>
+
+            <label for="squat">Squat</label>
+            <input type="checkbox" value="squat" id="squat" name="squat" checked />
+            <button id="squatBtn" class="workoutButton" onclick="squatClick()">
+              <span>&#9745;</span> Squat
+            </button>
+
+            <label for="step-up">Step-up</label>
+            <input type="checkbox" value="step-up" id="step-up" name="step-up" checked />
+            <button id="stepBtn" class="workoutButton" onclick="stepClick()">
+              <span>&#9745;</span> Step-up
+            </button>
+
+            <label for="running">Running</label>
+            <input type="checkbox" value="running" id="running" name="running" checked />
+            <button id="runningBtn" class="workoutButton" onclick="runningClick()">
+              <span>&#9745;</span> Running
+            </button>
+
+            <label for="lunge">Lunge</label>
+            <input type="checkbox" value="lunge" id="lunge" name="lunge" checked />
+            <button id="lungeBtn" class="workoutButton" onclick="lungeClick()">
+              <span>&#9745;</span> Lunges
+            </button>
+
+            <label for="jacks">Jumping Jacks</label>
+            <input type="checkbox" value="jumping-jacks" id="jacks" name="jacks" checked />
+            <button id="jacksBtn" class="workoutButton" onclick="jacksClick()">
+              <span>&#9745;</span> Jumping Jacks
+            </button>
+
+            <label for="sit">Wall-sit</label>
+            <input type="checkbox" value="wall-sit" id="sit" name="sit" checked />
+            <button id="sitBtn" class="workoutButton" onclick="sitClick()">
+              <span>&#9745;</span> Wall-sit
+            </button>
+
+            <label for="tricepsdip">Triceps Dip</label>
+            <input type="checkbox" value="triceps-dip" id="tricepsdip" name="tricepsdip" checked />
+            <button id="tricepsdipBtn" class="workoutButton" onclick="tricepsDipClick()">
+              <span>&#9745;</span> Triceps Dip
+            </button>
+          </fieldset>
+        </form>
+        <button class="closeBtn button" onclick="">Close</button>
       </div>
     </div>
-    <div id="active-workout"></div>
-    <span id="timer"></span>
-  </body>
-</html>
 
+    <div id="progressBar">
+      <div id="myBar" role="progressbar"></div>
+    </div>
+    <div id="timer" role="timer"></div>
+    <div>
+      <p id="countdown"></p>
+      <button id="startResume" onclick="someFunc()">Start</button>
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+
+    <div id="active-workout"></div>
+  </main>
+</body>
+
+</html>
