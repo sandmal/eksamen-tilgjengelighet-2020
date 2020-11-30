@@ -1,13 +1,13 @@
 function reset() {
-    location.reload();
+  location.reload();
 }
 
 function showBar() {
-    document.getElementById("progressBar").style.display = "block";
+  document.getElementById("progressBar").style.display = "block";
 }
 
 function hideButtonWork() {
-    document.querySelector("#workout>button").style.display = "none";
+  document.querySelector("#workout>button").style.display = "none";
 }
 
 // Functions for body parts
@@ -98,6 +98,7 @@ function tricepsClick() {
     document.getElementById("triceps").classList.toggle("workoutButtonToggled");
     document.querySelector("#triceps>span").classList.toggle("hide");
 }
+
 // End functions for body parts
 
 function pushupClick() {
