@@ -65,9 +65,8 @@ function someFunc() {
 
 function renderCurrentExercise(exercise) {
   document.getElementById("active-workout").innerHTML = `
-    <p>${exercise.category} ||  ${exercise.type}</p>
-      <figure data-class="${exercise.category}" data-name="${exercise.name}">
-        <img src="${exercise.img}" alt="${exercise.name} Exercise" />
+      <figure data-class="${exercise.category}" data-name="${exercise.name}" aria-live="polite">
+        <img src="${exercise.img}" alt="Person displaying the ${exercise.name} exercise" />
         <figcaption>30 SEC.<span class="line-break">${exercise.name}</span></figcaption>
       </figure>
       <audio controls autoplay>
@@ -79,8 +78,8 @@ function renderCurrentExercise(exercise) {
 
 function renderRestAnimation() {
   document.getElementById("active-workout").innerHTML = `
-      <h3>REST</h3>
-      <p>Take a rest</p>
+      <h3 aria-live="polite">REST</h3>
+      <p aria-live="polite">Rest for 5 seconds</p>
       <audio controls autoplay>
         <source src="assets/sounds/rest.mp3">
       </audio>
