@@ -7,8 +7,10 @@
 /* Define primary color used for text and secondary used for placeholder background atm.*/
 
 :root {
-  --primary-color: #785c1b;
-  --secondary-color: #f1f1f1;
+  --primary-color-light: #785c1b;
+  --primary-color-dark: #C6A354;
+  --secondary-color-light: #f1f1f1;
+  --secondary-color-dark: #121212;
 }
 
 /* Define fonts for heading and body text*/
@@ -34,11 +36,11 @@ figcaption {
   font-family: "Athelas-Regular", sans-serif;
 }
 
-/* Set height 2em and width 3em | Set background color to secondary color*/
+/* Set height 2em and width 3em | Set background color to --secondary-color-light*/
 
 body {
   margin: 1em;
-  background-color: var(--secondary-color, 0.1);
+  background-color: var(--secondary-color-light, 0.1);
 }
 
 /* Set primary color for the text*/
@@ -48,7 +50,7 @@ h2,
 h3,
 figcaption,
 p {
-  color: var(--primary-color);
+  color: var(--primary-color-light);
 }
 
 /* Create line after 7 minute workout | set line break on figcaption  */
@@ -58,7 +60,7 @@ h1:after {
   display: block;
   margin: 0 auto;
   width: 6.6em;
-  border-bottom: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color-light);
 }
 
 .line-break {
@@ -118,7 +120,7 @@ figure img {
 .button {
   background-color: #ffffff;
   border-radius: 2em;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-color-light);
   display: block;
   cursor: pointer;
   color: black;
@@ -167,7 +169,7 @@ figure img {
 #workout>button:hover,
 #startResume:hover,
 #reset:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-light);
   color: #ffffff;
 }
 
@@ -229,7 +231,7 @@ li {
 #progressBar {
   display: none;
   width: 100%;
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color-light);
   border: 1px solid black;
   margin: 1em 0;
 }
@@ -237,12 +239,12 @@ li {
 #myBar {
   width: 1%;
   height: 30px;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-light);
 }
 
 ul {
-  background-color: var(--secondary-color);
-  border: 1px solid var(--primary-color);
+  background-color: var(--secondary-color-light);
+  border: 1px solid var(--primary-color-light);
 }
 
 label {
@@ -263,7 +265,7 @@ input[type="submit"] {
 .workoutButton {
   background-color: #ffffff;
   border-radius: 2em;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-color-light);
   display: block;
   cursor: pointer;
   color: black;
@@ -277,7 +279,7 @@ input[type="submit"] {
 }
 
 .workoutButtonToggled {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-light);
   color: #ffffff;
 }
 
@@ -329,4 +331,93 @@ audio,
     padding: 15px 31px;
     height: 5em;
   }
+}
+
+/* User that has dark mode enabled */
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background-color: var(--secondary-color-dark);
+  }
+
+  h1,
+  h2,
+  h3,
+  figcaption,
+  p {
+    color: var(--primary-color-dark);
+  }
+
+  h1:after {
+    border-bottom: 1px solid var(--primary-color-dark);
+  }
+
+  #workout>button,
+  #startResume,
+  #reset,
+  .button {
+    background-color: #2a2a2a;
+    border: 1px solid var(--primary-color-dark);
+    color: #d5d5d5;
+  }
+
+  .modal-content {
+    background-color: #414141;
+    border: 1px solid #888;
+  }
+
+  fieldset {
+    background-color: #595959;
+  }
+
+  legend {
+    color: #d5d5d5;
+    background-color: #2a2a2a;
+  }
+
+  .closeBtn:hover,
+  #workout>button:hover,
+  #startResume:hover,
+  #reset:hover {
+    background-color: var(--primary-color-dark);
+    color: #ffffff;
+  }
+
+  #myBar {
+    background-color: var(--primary-color-dark);
+  }
+
+  #progressBar {
+    background-color: #2a2a2a;
+    border: 1px solid #3f3f3f;
+  }
+
+  #timer {
+    color: #d5d5d5;
+  }
+
+  ul {
+    background-color: var(--secondary-color-dark);
+    border: 1px solid var(--primary-color-dark);
+  }
+
+  li {
+    color: #d5d5d5;
+  }
+
+  .workoutButton {
+    background-color: #2a2a2a;
+    border: 1px solid var(--primary-color-dark);
+    color: #d5d5d5;
+  }
+
+  .workoutButtonToggled {
+    background-color: var(--primary-color-dark);
+    color: #ffffff;
+  }
+
+  figure img {
+    filter: brightness(.8) contrast(1.2);
+  }
+
 }
