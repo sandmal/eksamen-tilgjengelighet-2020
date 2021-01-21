@@ -1,1 +1,1 @@
-# eksamen-tilgjengelighet-2020
+# Workout website using vanilla js, HTML and CSS
